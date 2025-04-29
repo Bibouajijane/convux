@@ -20,6 +20,7 @@
       justify-content: space-between;
       padding: 20px 40px;
       position: relative;
+      flex-wrap: wrap; /* Ensures header items wrap on smaller screens */
     }
 
     .left-section {
@@ -72,6 +73,7 @@
       height: 80px;
     }
 
+    /* Grid layout for game cards */
     .grid-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -85,6 +87,12 @@
       padding: 10px;
       text-align: center;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      height: 320px;
+      max-width: 240px;
     }
 
     .card img {
@@ -122,6 +130,31 @@
 
     .download-btn:hover {
       background-color: #00b15c;
+    }
+
+    /* Media Queries for responsiveness */
+    @media (max-width: 768px) {
+      .search-bar input {
+        width: 200px; /* Smaller width on mobile */
+      }
+
+      .store-name {
+        font-size: 1.5rem; /* Adjust store name size on mobile */
+      }
+
+      .logo {
+        height: 60px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .search-bar input {
+        width: 150px; /* Even smaller on very small screens */
+      }
+
+      .grid-container {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      }
     }
   </style>
 </head>
@@ -249,9 +282,9 @@
       cards.forEach(card => {
         const cardName = card.getAttribute('data-name').toLowerCase();
         if (cardName.includes(searchTerm)) {
-          card.style.display = 'block';
+          card.style.display = 'flex'; // Display matching cards
         } else {
-          card.style.display = 'none';
+          card.style.display = 'none'; // Hide non-matching cards
         }
       });
     }
