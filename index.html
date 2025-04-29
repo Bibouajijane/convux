@@ -15,7 +15,9 @@
     header {
       background-color: #1c1c24;
       padding: 20px;
-      text-align: center;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
     header h1 {
@@ -28,7 +30,26 @@
     }
 
     .green {
-      color: #33FF33 ;
+      color: #33FF33;
+    }
+
+    .search-container {
+      position: relative;
+    }
+
+    .search-container input {
+      padding: 8px 30px 8px 10px;
+      border-radius: 6px;
+      border: none;
+      font-size: 1rem;
+    }
+
+    .search-container i {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #888;
     }
 
     .grid-container {
@@ -51,9 +72,8 @@
       aspect-ratio: 1 / 1;
       object-fit: contain;
       border-radius: 8px;
-      background-color: #000; /* Optional: for contrast around transparent images */
+      background-color: #000;
     }
-
 
     .card h2 {
       font-size: 1.1rem;
@@ -89,10 +109,16 @@
 <body>
   <header>
     <h1><span class="white">Convux</span><span class="green">Store</span></h1>
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="Search games..." onkeyup="searchGames()">
+      <i>🔍</i>
+    </div>
   </header>
 
-  <main class="grid-container">
-    <!-- Game Cards -->
+  <main class="grid-container" id="gameContainer">
+    <!-- All your .card divs go here as they are (unchanged) -->
+    <!-- (You already have this part well structured, so just keep your existing game cards) -->
+    <!-- For example: -->
     <div class="card">
       <img src="https://b.top4top.io/p_3406j8o681.png" alt="gta iv" />
       <h2>Grand Theft Auto IV Mobile</h2>
@@ -100,94 +126,19 @@
       <p class="downloads">15,842 downloads</p>
       <button class="download-btn">⬇ Download</button>
     </div>
-
-    <div class="card">
-      <img src="https://f.top4top.io/p_3406z43po1.jpeg" alt="League of Legends" />
-      <h2>League of Legends</h2>
-      <p class="rating">⭐⭐⭐⭐⭐</p>
-      <p class="downloads">12,763 downloads</p>
-      <button class="download-btn">⬇ Download</button>
-    </div>
-
-    <div class="card">
-      <img src="https://b.top4top.io/p_34066ixq51.jpg" alt="Fortnite Mobile" />
-      <h2>Fortnite Mobile</h2>
-      <p class="rating">⭐⭐⭐⭐</p>
-      <p class="downloads">9,854 downloads</p>
-      <button class="download-btn">⬇ Download</button>
-    </div>
-
-    <div class="card">
-      <img src="https://e.top4top.io/p_3406ddref1.jpg" alt="Roblox" />
-      <h2>Roblox</h2>
-      <p class="rating">⭐⭐⭐⭐⭐</p>
-      <p class="downloads">14,321 downloads</p>
-      <button class="download-btn">⬇ Download</button>
-    </div>
-
-    <div class="card">
-      <img src="https://e.top4top.io/p_3406dpns11.jpg" alt="Valorant" />
-      <h2>Valorant Mobile</h2>
-      <p class="rating">⭐⭐⭐⭐⭐</p>
-      <p class="downloads">8,976 downloads</p>
-      <button class="download-btn">⬇ Download</button>
-    </div>
-
-    <div class="card">
-      <img src="https://h.top4top.io/p_3406dxrtk1.png" alt="BASEBALL 9" />
-      <h2>Baseball 9 </h2>
-      <p class="rating">⭐⭐⭐⭐</p>
-      <p class="downloads">53,234 downloads</p>
-      <button class="download-btn">⬇ Download</button>
-    </div>
-
-    <div class="card">
-      <img src="https://d.top4top.io/p_3406x5kaq1.jpg" alt="god of war" />
-      <h2>God of War Mobile</h2>
-      <p class="rating">⭐⭐⭐⭐</p>
-      <p class="downloads">9,854 downloads</p>
-      <button class="download-btn">⬇ Download</button>
-    </div>
-
-    <div class="card">
-      <img src="https://j.top4top.io/p_34064g5oz1.jpg" alt="Euro Truck 2" />
-      <h2>Euro Truck Similator 2 Mobile</h2>
-      <p class="rating">⭐⭐⭐⭐⭐</p>
-      <p class="downloads">13,557 downloads</p>
-      <button class="download-btn">⬇ Download</button>
-    </div>
-
-    <div class="card">
-      <img src="https://d.top4top.io/p_3406rzhlt1.png" alt="Monopoly Go" />
-      <h2>Monopoly Go !</h2>
-      <p class="rating">⭐⭐⭐⭐</p>
-      <p class="downloads">10,345 downloads</p>
-      <button class="download-btn">⬇ Download</button>
-    </div>
-
-    <div class="card">
-      <img src="https://i.top4top.io/p_3406hix201.jpg" alt="The last of us" />
-      <h2>The last of us Part 1 Mobile</h2>
-      <p class="rating">⭐⭐⭐⭐</p>
-      <p class="downloads">9,541 downloads</p>
-      <button class="download-btn">⬇ Download</button>
-    </div>
-
-    <div class="card">
-      <img src="https://h.top4top.io/p_3406a5yun1.jpg" alt="Red Dead Redemption 2" />
-      <h2>Red Dead Redemption 2</h2>
-      <p class="rating">⭐⭐⭐⭐⭐</p>
-      <p class="downloads">11,687 downloads</p>
-      <button class="download-btn">⬇ Download</button>
-    </div>
-
-    <div class="card">
-      <img src="https://h.top4top.io/p_34066996o1.jpg" alt="Fifa 25" />
-      <h2>Fifa 25 Mobile</h2>
-      <p class="rating">⭐⭐⭐⭐⭐</p>
-      <p class="downloads">14,209 downloads</p>
-      <button class="download-btn">⬇ Download</button>
-    </div>
+    <!-- (continue with all your other game cards) -->
   </main>
+
+  <script>
+    function searchGames() {
+      const input = document.getElementById("searchInput").value.toLowerCase();
+      const cards = document.querySelectorAll(".card");
+
+      cards.forEach(card => {
+        const title = card.querySelector("h2").textContent.toLowerCase();
+        card.style.display = title.includes(input) ? "block" : "none";
+      });
+    }
+  </script>
 </body>
 </html>
