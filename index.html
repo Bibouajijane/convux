@@ -15,11 +15,33 @@
 
     header {
       background-color: #1c1c24;
-      padding: 20px;
-      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 40px;
+      position: relative;
     }
 
-    header img.logo {
+    .store-name {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .white {
+      color: white;
+    }
+
+    .green {
+      color: #33FF33 ;
+    }
+
+    .logo-wrapper {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .logo {
       height: 80px;
     }
 
@@ -78,7 +100,10 @@
 </head>
 <body>
   <header>
-    <div class="header-center">
+    <div class="store-name">
+      <span class="white">Convux</span><span class="green">Store</span>
+    </div>
+    <div class="logo-wrapper">
       <img class="logo" src="https://j.top4top.io/p_3406fdyio1.png" alt="Logo" />
     </div>
   </header>
