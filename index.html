@@ -17,7 +17,7 @@
       background-color: #1c1c24;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center; /* Center the logo */
       padding: 15px 20px;
       position: sticky;
       top: 0;
@@ -26,15 +26,8 @@
       transition: 0.3s ease-in-out;
     }
 
-    .store-name {
-      font-size: 1.8rem;
-      font-weight: bold;
-      color: #fff;
-    }
-
     .logo-wrapper {
-      position: absolute;
-      right: 20px;
+      text-align: center; /* Ensure the logo is centered */
     }
 
     .logo {
@@ -107,13 +100,9 @@
         height: 60px;
       }
 
-      .store-name {
-        font-size: 1.5rem;
-      }
-
       header {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center; /* Keep logo centered on smaller screens */
         padding: 10px 15px;
       }
     }
@@ -121,10 +110,6 @@
 </head>
 <body>
   <header>
-    <div class="store-name">
-      <span class="white">Convux</span><span class="green">Store</span>
-    </div>
-
     <div class="logo-wrapper">
       <img class="logo" src="https://j.top4top.io/p_3406fdyio1.png" alt="Logo" />
     </div>
