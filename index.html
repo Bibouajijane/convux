@@ -19,17 +19,18 @@
       align-items: center;
       justify-content: space-between;
       padding: 15px 20px;
-      position: relative;
-      flex-wrap: wrap;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: 0.3s ease-in-out;
     }
 
     .store-name {
       font-size: 1.8rem;
       font-weight: bold;
+      color: #fff;
     }
-
-    .white { color: white; }
-    .green { color: #33FF33; }
 
     .logo-wrapper {
       position: absolute;
@@ -58,8 +59,8 @@
       color: white;
       font-size: 1rem;
       width: 250px;
-      transition: 0.3s ease;
       display: none;
+      transition: 0.3s ease;
     }
 
     .search-icon {
@@ -124,7 +125,7 @@
       background-color: #00b15c;
     }
 
-    /* Responsive styles */
+    /* تحسينات الاستجابة */
     @media (max-width: 768px) {
       .search-bar input {
         display: none;
@@ -132,7 +133,9 @@
         margin-top: 10px;
       }
 
-     
+      .search-icon {
+        display: inline;
+      }
 
       .search-bar.active input {
         display: block;
@@ -149,6 +152,7 @@
       header {
         flex-direction: column;
         align-items: flex-start;
+        padding: 10px 15px;
       }
 
       .search-bar {
@@ -161,13 +165,17 @@
 </head>
 <body>
   <header>
+    <div class="store-name">
+      <span class="white">Convux</span><span class="green">Store</span>
+    </div>
 
     <div class="logo-wrapper">
       <img class="logo" src="https://j.top4top.io/p_3406fdyio1.png" alt="Logo" />
     </div>
 
     <div class="search-bar" id="searchBar">
-      <input type="text" id="searchInput" placeholder="Search For Game..." onkeyup="filterCards()" />
+      <button class="search-icon" onclick="toggleSearch()">🔍</button>
+      <input type="text" id="searchInput" placeholder="ابحث عن لعبة..." onkeyup="filterCards()" />
     </div>
   </header>
 
@@ -270,7 +278,7 @@
     </div>
   </main>
 
-  <script>
+   <script>
     function filterCards() {
       const searchTerm = document.getElementById('searchInput').value.toLowerCase();
       const cards = document.querySelectorAll('.card');
