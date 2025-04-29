@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Convux</title>
+  <link rel="icon" href="https://j.top4top.io/p_3406fdyio1.png" type="image/png" />
   <style>
     body {
       margin: 0;
@@ -15,9 +16,7 @@
     header {
       background-color: #1c1c24;
       padding: 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      text-align: center;
     }
 
     header h1 {
@@ -30,26 +29,7 @@
     }
 
     .green {
-      color: #33FF33;
-    }
-
-    .search-container {
-      position: relative;
-    }
-
-    .search-container input {
-      padding: 8px 30px 8px 10px;
-      border-radius: 6px;
-      border: none;
-      font-size: 1rem;
-    }
-
-    .search-container i {
-      position: absolute;
-      right: 10px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: #888;
+      color: #33FF33 ;
     }
 
     .grid-container {
@@ -59,19 +39,19 @@
       padding: 20px;
     }
 
-     .card img {
-      width: 100%;
-      height: 140px;
-      object-fit: cover;
-      border-radius: 8px;
+    .card {
+      background-color: #1f1f28;
+      border-radius: 12px;
+      padding: 10px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     }
 
     .card img {
       width: 100%;
-      aspect-ratio: 1 / 1;
-      object-fit: contain;
+      height: 140px;
+      object-fit: cover;
       border-radius: 8px;
-      background-color: #000;
     }
 
     .card h2 {
@@ -108,10 +88,6 @@
 <body>
   <header>
     <h1><span class="white">Convux</span><span class="green">Store</span></h1>
-    <div class="search-container">
-      <input type="text" id="searchInput" placeholder="Search games..." onkeyup="searchGames()">
-      <i>🔍</i>
-    </div>
   </header>
 
   <main class="grid-container">
@@ -210,18 +186,7 @@
       <p class="rating">⭐⭐⭐⭐⭐</p>
       <p class="downloads">14,209 downloads</p>
       <button class="download-btn">⬇ Download</button>
-  <script>
-    function searchGames() {
-      const input = document.getElementById("searchInput").value.toLowerCase();
-      const cards = document.querySelectorAll(".card");
-
-      cards.forEach(card => {
-        const title = card.querySelector("h2").textContent.toLowerCase();
-        card.style.display = title.includes(input) ? "block" : "none";
-      });
-    }
-  </script>
-   </div>
+    </div>
   </main>
 </body>
 </html>
