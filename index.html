@@ -34,42 +34,11 @@
 
     .logo-wrapper {
       position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
+      right: 20px;
     }
 
     .logo {
       height: 70px;
-    }
-
-    .search-bar {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      position: absolute;
-      top: 15px;
-      right: 20px;
-    }
-
-    .search-bar input {
-      padding: 8px 15px;
-      background-color: #1f1f28;
-      border: 2px solid #333;
-      border-radius: 8px;
-      color: white;
-      font-size: 1rem;
-      width: 250px;
-      display: none;
-      transition: 0.3s ease;
-    }
-
-    .search-icon {
-      font-size: 1.5rem;
-      color: white;
-      background: none;
-      border: none;
-      cursor: pointer;
-      display: inline;
     }
 
     .grid-container {
@@ -127,20 +96,6 @@
 
     /* تحسينات الاستجابة */
     @media (max-width: 768px) {
-      .search-bar input {
-        display: none;
-        width: 100%;
-        margin-top: 10px;
-      }
-
-      .search-icon {
-        display: inline;
-      }
-
-      .search-bar.active input {
-        display: block;
-      }
-
       .logo {
         height: 60px;
       }
@@ -154,12 +109,6 @@
         align-items: flex-start;
         padding: 10px 15px;
       }
-
-      .search-bar {
-        width: 100%;
-        flex-direction: column;
-        align-items: flex-start;
-      }
     }
   </style>
 </head>
@@ -172,10 +121,9 @@
     <div class="logo-wrapper">
       <img class="logo" src="https://j.top4top.io/p_3406fdyio1.png" alt="Logo" />
     </div>
-
   </header>
 
-   <main class="grid-container">
+  <main class="grid-container">
     <!-- Game Cards -->
     <div class="card">
       <img src="https://b.top4top.io/p_3406j8o681.png" alt="gta iv" />
@@ -273,22 +221,5 @@
       <button class="download-btn">⬇ Download</button>
     </div>
   </main>
-
-   <script>
-    function filterCards() {
-      const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-      const cards = document.querySelectorAll('.card');
-
-      cards.forEach(card => {
-        const cardName = card.getAttribute('data-name').toLowerCase();
-        card.style.display = cardName.includes(searchTerm) ? 'flex' : 'none';
-      });
-    }
-
-    function toggleSearch() {
-      const searchBar = document.getElementById('searchBar');
-      searchBar.classList.toggle('active');
-    }
-  </script>
 </body>
 </html>
