@@ -41,13 +41,25 @@
       color: #33FF33 ;
     }
 
+    /* Modern Search Bar */
     .search-bar input {
-      padding: 8px 12px;
-      border-radius: 6px;
-      border: none;
-      outline: none;
+      padding: 10px 20px;
+      background-color: #1f1f28; /* Dark background */
+      border: 2px solid #333; /* Subtle border */
+      border-radius: 8px;
+      color: white;
       font-size: 1rem;
       width: 250px;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+
+    .search-bar input::placeholder {
+      color: #aaa;
+    }
+
+    .search-bar input:focus {
+      border-color: #00d26a; /* Green focus */
     }
 
     .logo-wrapper {
