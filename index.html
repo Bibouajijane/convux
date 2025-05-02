@@ -219,5 +219,40 @@
     <br><br>
     All rights reserved to Convux © 2025
   </footer>
+
+  <!-- Fullscreen Locker Popup -->
+<div id="lockerOverlay" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:#000000d9; z-index:9999;">
+  <div style="width:100%; height:100%; display:flex; align-items:center; justify-content:center;">
+    <!-- AdBleo Locker Code -->
+    <div id="adbleoLocker" style="width:100%; height:100%;">
+      <script type="text/javascript">
+        var lnNxb_Uez_SuNytc = { "it": 4482512, "key": "6975c" };
+      </script>
+      <script src="https://d2v7l2267atlz5.cloudfront.net/6745af1.js"></script>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Override all download buttons
+  const buttons = document.querySelectorAll('.download-btn');
+  buttons.forEach(btn => {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault(); // Prevent original link
+      document.getElementById('lockerOverlay').style.display = 'block';
+    });
+  });
+
+  // Disable Escape key and right-click
+  document.addEventListener('keydown', function(e) {
+    if (e.key === "Escape") e.preventDefault();
+  });
+
+  document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+  });
+</script>
+
+  
   </body>
  </html>
