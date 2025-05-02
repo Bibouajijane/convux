@@ -87,7 +87,6 @@
       display: none;
       justify-content: center;
       align-items: center;
-      overflow: hidden;
     }
 
     #lockerModal iframe {
@@ -223,11 +222,18 @@
   All rights reserved to Convux © 2025
 </footer>
 
+<!-- Content Locker Modal -->
+<div id="lockerModal">
+  <iframe src="https://locker.adbleumedia.com/locker?pubid=YOUR_PUB_ID&lid=YOUR_LOCKER_ID"></iframe>
+</div>
+
 <script>
-  function openLocker(gameName) {
-    // Open a new page with the content locker
-    const contentLockerURL = `lockerPage.html?game=${gameName}`;
-    window.open(contentLockerURL, '_blank');
+  function openLocker() {
+    document.getElementById('lockerModal').style.display = 'flex';
+    history.pushState(null, null, window.location.href);
+    window.onpopstate = function () {
+      history.go(1);
+    };
   }
 </script>
 
