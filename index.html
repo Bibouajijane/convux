@@ -223,6 +223,29 @@
   <br><br>
   All rights reserved to Convux © 2025
 </footer>
+<!-- أضف هذا العنصر داخل <body> قبل </body> -->
+<div id="lockerModal">
+  <iframe src="https://www.cpalead.com/mylocker.php?pub=YOUR_ID&sid=LOCKER_ID"></iframe>
+</div>
+
+<script>
+  function openLocker() {
+    const locker = document.getElementById("lockerModal");
+    locker.style.display = "flex";
+
+    // محاولات لمنع الغلق
+    document.body.style.overflow = "hidden"; // يمنع التمرير
+    window.onbeforeunload = function () {
+      return "Please complete the offer to continue.";
+    };
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" || (e.ctrlKey && e.key === "w")) {
+        e.preventDefault();
+      }
+    });
+  }
+</script>
+
 
 </body>
 </html>
