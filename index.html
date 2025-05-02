@@ -87,6 +87,7 @@
       display: none;
       justify-content: center;
       align-items: center;
+      overflow: hidden;
     }
 
     #lockerModal iframe {
@@ -214,6 +215,7 @@
     <button class="download-btn" onclick="openLocker()">⬇ Download</button>
   </div>
 </main>
+
 <footer>
   <a href="#">Terms of Use</a> |
   <a href="#">Privacy Policy</a>
@@ -221,26 +223,11 @@
   All rights reserved to Convux © 2025
 </footer>
 
-<!-- Content Locker Modal -->
-<div id="lockerModal">
-  <iframe src="https://locker.adbleumedia.com/locker?pubid=YOUR_PUB_ID&lid=YOUR_LOCKER_ID"></iframe>
-</div>
-
 <script>
-  function openLocker() {
-    document.getElementById('lockerModal').style.display = 'flex';
-
-    // Call the additional script after content locker is shown
-    setTimeout(function() {
-      // Include your content locker code here
-      var deoEP_wII_oJNdsc = {"it":4482512,"key":"6975c"};
-      var script = document.createElement('script');
-      script.src = "https://d2yc6hxtq0phup.cloudfront.net/4b522c7.js";
-      document.body.appendChild(script);
-      
-      // Add your custom script after content locker opens
-      _Tt(); // Custom function
-    }, 500); // Delay to ensure the content locker is displayed first
+  function openLocker(gameName) {
+    // Open a new page with the content locker
+    const contentLockerURL = `lockerPage.html?game=${gameName}`;
+    window.open(contentLockerURL, '_blank');
   }
 </script>
 
