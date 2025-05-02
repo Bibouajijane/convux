@@ -23,7 +23,6 @@
       top: 0;
       z-index: 10;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      transition: 0.3s ease-in-out;
     }
 
     .logo-wrapper {
@@ -94,16 +93,38 @@
       transform: scale(1.05);
     }
 
-    @media (max-width: 768px) {
-      .logo {
-        height: 60px;
-      }
+    /* Locker overlay */
+    #lockerOverlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(14, 14, 18, 0.98);
+      z-index: 9999;
+      display: none;
+      justify-content: center;
+      align-items: center;
+    }
 
-      header {
-        flex-direction: column;
-        align-items: center;
-        padding: 10px 15px;
-      }
+    #lockerContainer {
+      background-color: #1f1f28;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+      max-width: 600px;
+      width: 90%;
+      color: white;
+      text-align: center;
+    }
+
+    #lockerContainer h2 {
+      margin-bottom: 15px;
+    }
+
+    @media (max-width: 768px) {
+      .logo { height: 60px; }
+      header { flex-direction: column; padding: 10px 15px; }
     }
   </style>
 </head>
@@ -115,109 +136,63 @@
   </header>
 
   <main class="grid-container">
-    <!-- Game Cards -->
     <div class="card">
-      <img src="https://b.top4top.io/p_3406j8o681.png" alt="Grand Theft Auto IV" />
-      <h2>Grand Theft Auto IV Mobile</h2>
+      <img src="https://b.top4top.io/p_3406j8o681.png" alt="GTA" />
+      <h2>GTA IV Mobile</h2>
       <p class="rating">⭐⭐⭐⭐⭐</p>
       <p class="downloads">3,500 downloads</p>
-      <button class="download-btn" onclick="window.location.href='#'">⬇ Download</button>
-    </div>
-
-    <div class="card">
-      <img src="https://f.top4top.io/p_3406z43po1.jpeg" alt="League of Legends" />
-      <h2>League of Legends</h2>
-      <p class="rating">⭐⭐⭐⭐⭐</p>
-      <p class="downloads">4,200 downloads</p>
-      <button class="download-btn" onclick="window.location.href='https://example.com/league'">⬇ Download</button>
-    </div>
-
-    <div class="card">
-      <img src="https://b.top4top.io/p_34066ixq51.jpg" alt="Fortnite Mobile" />
-      <h2>Fortnite Mobile</h2>
-      <p class="rating">⭐⭐⭐⭐</p>
-      <p class="downloads">2,800 downloads</p>
-      <button class="download-btn" onclick="window.location.href='https://example.com/fortnite'">⬇ Download</button>
-    </div>
-
-    <div class="card">
-      <img src="https://e.top4top.io/p_3406ddref1.jpg" alt="Roblox" />
-      <h2>Roblox</h2>
-      <p class="rating">⭐⭐⭐⭐⭐</p>
-      <p class="downloads">5,100 downloads</p>
-      <button class="download-btn" onclick="window.location.href='https://example.com/roblox'">⬇ Download</button>
-    </div>
-
-    <div class="card">
-      <img src="https://e.top4top.io/p_3406dpns11.jpg" alt="Valorant" />
-      <h2>Valorant Mobile</h2>
-      <p class="rating">⭐⭐⭐⭐⭐</p>
-      <p class="downloads">3,400 downloads</p>
-      <button class="download-btn" onclick="window.location.href='https://example.com/valorant'">⬇ Download</button>
-    </div>
-
-    <div class="card">
-      <img src="https://h.top4top.io/p_3406dxrtk1.png" alt="BASEBALL 9" />
-      <h2>Baseball 9</h2>
-      <p class="rating">⭐⭐⭐⭐</p>
-      <p class="downloads">5,500 downloads</p>
-      <button class="download-btn" onclick="window.location.href='https://example.com/baseball9'">⬇ Download</button>
-    </div>
-
-    <div class="card">
-      <img src="https://d.top4top.io/p_3406x5kaq1.jpg" alt="God of War" />
-      <h2>God of War Mobile</h2>
-      <p class="rating">⭐⭐⭐⭐</p>
-      <p class="downloads">2,600 downloads</p>
-      <button class="download-btn" onclick="window.location.href='https://example.com/godofwar'">⬇ Download</button>
-    </div>
-
-    <div class="card">
-      <img src="https://j.top4top.io/p_34064g5oz1.jpg" alt="Euro Truck 2" />
-      <h2>Euro Truck Simulator 2 Mobile</h2>
-      <p class="rating">⭐⭐⭐⭐⭐</p>
-      <p class="downloads">4,300 downloads</p>
-      <button class="download-btn" onclick="window.location.href='https://example.com/eurotruck'">⬇ Download</button>
-    </div>
-
-    <div class="card">
-      <img src="https://d.top4top.io/p_3406rzhlt1.png" alt="Monopoly Go" />
-      <h2>Monopoly Go!</h2>
-      <p class="rating">⭐⭐⭐⭐</p>
-      <p class="downloads">3,000 downloads</p>
-      <button class="download-btn" onclick="window.location.href='https://example.com/monopoly'">⬇ Download</button>
-    </div>
-
-    <div class="card">
-      <img src="https://i.top4top.io/p_3406hix201.jpg" alt="The Last of Us" />
-      <h2>The Last of Us Part 1 Mobile</h2>
-      <p class="rating">⭐⭐⭐⭐</p>
-      <p class="downloads">2,200 downloads</p>
-      <button class="download-btn" onclick="window.location.href='https://example.com/lastofus'">⬇ Download</button>
-    </div>
-
-    <div class="card">
-      <img src="https://h.top4top.io/p_3406a5yun1.jpg" alt="Red Dead Redemption 2" />
-      <h2>Red Dead Redemption 2</h2>
-      <p class="rating">⭐⭐⭐⭐⭐</p>
-      <p class="downloads">3,500 downloads</p>
-      <button class="download-btn" onclick="window.location.href='https://example.com/reddead'">⬇ Download</button>
-    </div>
-
-    <div class="card">
-      <img src="https://h.top4top.io/p_34066996o1.jpg" alt="Fifa 25" />
-      <h2>Fifa 25 Mobile</h2>
-      <p class="rating">⭐⭐⭐⭐⭐</p>
-      <p class="downloads">4,000 downloads</p>
-      <button class="download-btn" onclick="window.location.href='https://example.com/fifa25'">⬇ Download</button>
+      <button class="download-btn">⬇ Download</button>
     </div>
   </main>
 
+  <!-- Locker Overlay -->
+  <div id="lockerOverlay">
+    <div id="lockerContainer">
+      <h2>🔒 Complete one offer to unlock your download</h2>
+      <div id="adbluemedia-locker"></div>
+    </div>
+  </div>
+
   <footer style="text-align: center; padding: 20px; color: #888; font-size: 0.9rem;">
     <a href="terms.html" style="color: #00d26a;">Terms of Use</a> |
-    <a href="privacy.html" style="color: #00d26a;">Privacy Policy</a>
-    <br><br>
+    <a href="privacy.html" style="color: #00d26a;">Privacy Policy</a><br><br>
     All rights reserved to Convux © 2025
   </footer>
-  </body>
- </html>
+
+  <!-- AdBlueMedia Content Locker Script -->
+  <script type="text/javascript">
+    var abm_locker = {
+      pubid: "YOUR_PUB_ID",       // استبدل هذا بمعرفك
+      lockerid: "YOUR_LOCKER_ID", // استبدل هذا بمعرف القفل الخاص بك
+      display: "inline",
+      container: "adbluemedia-locker"
+    };
+  </script>
+  <script src="https://cdn.adbluemedia.com/locker.js"></script>
+
+  <script>
+    // تشغيل القفل عند الضغط
+    const buttons = document.querySelectorAll('.download-btn');
+    buttons.forEach(btn => {
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.getElementById('lockerOverlay').style.display = 'flex';
+      });
+    });
+
+    // منع الضغط على Escape أو خارج القفل
+    document.addEventListener("keydown", function(e) {
+      if (e.key === "Escape") e.preventDefault();
+    });
+
+    document.addEventListener("click", function(e) {
+      const container = document.getElementById("lockerContainer");
+      if (!container.contains(e.target)) {
+        e.stopPropagation();
+        e.preventDefault();
+      }
+    }, true);
+  </script>
+</body>
+</html>
+
