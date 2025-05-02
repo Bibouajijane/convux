@@ -76,6 +76,27 @@
       font-weight: bold;
     }
 
+    #lockerModal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.95);
+      z-index: 9999;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    #lockerModal iframe {
+      width: 90%;
+      height: 90%;
+      border: none;
+      border-radius: 8px;
+    }
+
     footer {
       text-align: center;
       padding: 20px;
@@ -202,44 +223,50 @@
   All rights reserved to Convux © 2025
 </footer>
 
-<!-- Locker popup script -->
 <script>
   function openLocker() {
-    const popup = window.open('', '_blank', 'width=500,height=600,top=100,left=100,noopener,noreferrer');
+    const modal = document.getElementById('lockerModal');
+    const lockerContainer = document.getElementById('lockerContent');
 
-    if (popup) {
-      popup.document.write(`
-        <html>
-          <head>
-            <title>Verify to Continue</title>
-            <style>
-              body {
-                margin: 0;
-                background-color: #000;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-                color: white;
-                font-family: Arial, sans-serif;
-              }
-            </style>
-          </head>
-          <body>
-            <div id="locker-container"></div>
-            <script>
-              var deoEP_wII_oJNdsc = {"it":4482512,"key":"6975c"};
-            <\/script>
-            <script src="https://d2yc6hxtq0phup.cloudfront.net/4b522c7.js"><\/script>
-          </body>
-        </html>
-      `);
-      popup.document.close();
-    } else {
-      alert('يرجى تفعيل النوافذ المنبثقة (Popup) في المتصفح!');
-    }
+    // Show the modal
+    modal.style.display = 'flex';
+
+    // Prevent ESC key from closing anything
+    window.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') e.preventDefault();
+    });
+
+    // Prevent back navigation
+    history.pushState(null, null, location.href);
+    window.onpopstate = function () {
+      history.go(1);
+    };
+
+    // Inject the locker script
+    lockerContainer.innerHTML = `
+      <script type="text/javascript">
+        var deoEP_wII_oJNdsc={"it":4482512,"key":"6975c"};
+      <\/script>
+      <script src="https://d2yc6hxtq0phup.cloudfront.net/4b522c7.js"><\/script>
+    `;
   }
 </script>
+
+<!-- Modal for Content Locker -->
+<div id="lockerModal" style="
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.95);
+  z-index: 9999;
+  display: none;
+  justify-content: center;
+  align-items: center;
+">
+  <div id="lockerContent" style="width: 90%; height: 90%;"></div>
+</div>
 
 </body>
 </html>
