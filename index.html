@@ -5,13 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Convux</title>
   <link rel="icon" href="https://j.top4top.io/p_3406fdyio1.png" type="image/png" />
-
-  <!-- CPAlead Locker Code -->
-  <script type="text/javascript">
-    var PSYLib_GyC_siWlxc = {"it":4482512,"key":"6975c"};
-  </script>
-  <script src="https://d2vrl2267atlz5.cloudfront.net/105be71.js"></script>
-
   <style>
     body {
       margin: 0;
@@ -20,6 +13,7 @@
       color: white;
       overflow-x: hidden;
     }
+
     header {
       background-color: #1c1c24;
       display: flex;
@@ -30,9 +24,11 @@
       top: 0;
       z-index: 10;
     }
+
     .logo {
       height: 70px;
     }
+
     .grid-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -40,6 +36,7 @@
       padding: 20px;
       justify-items: center;
     }
+
     .card {
       background-color: #1f1f28;
       border-radius: 12px;
@@ -52,18 +49,22 @@
       height: 320px;
       width: 220px;
     }
+
     .card img {
       width: 100%;
       height: 140px;
       object-fit: cover;
       border-radius: 8px;
     }
+
     .card h2 {
       font-size: 1.1rem;
       margin: 10px 0 5px;
     }
+
     .rating { color: gold; margin: 0; }
     .downloads { font-size: 0.9rem; color: #aaa; }
+
     .download-btn {
       margin-top: 10px;
       padding: 10px 14px;
@@ -74,12 +75,34 @@
       cursor: pointer;
       font-weight: bold;
     }
+
+    #lockerModal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.95);
+      z-index: 9999;
+      display: none;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #lockerModal iframe {
+      width: 90%;
+      height: 90%;
+      border: none;
+      border-radius: 8px;
+    }
+
     footer {
       text-align: center;
       padding: 20px;
       color: #888;
       font-size: 0.9rem;
     }
+
     footer a {
       color: #00d26a;
       text-decoration: none;
@@ -94,30 +117,107 @@
 </header>
 
 <main class="grid-container">
-  <!-- Card Template -->
+  <!-- جميع الكروت -->
   <div class="card">
     <img src="https://b.top4top.io/p_3406j8o681.png" alt="GTA IV" />
     <h2>Grand Theft Auto IV Mobile</h2>
     <p class="rating">⭐⭐⭐⭐⭐</p>
     <p class="downloads">3,500 downloads</p>
-    <button class="download-btn" onclick="__JI()">⬇ Download</button>
+    <button class="download-btn" onclick="openLocker()">⬇ Download</button>
   </div>
 
-  <!-- Duplicate this structure for each game -->
   <div class="card">
     <img src="https://f.top4top.io/p_3406z43po1.jpeg" alt="League of Legends" />
     <h2>League of Legends</h2>
     <p class="rating">⭐⭐⭐⭐⭐</p>
     <p class="downloads">4,200 downloads</p>
-    <button class="download-btn" onclick="__JI()">⬇ Download</button>
+    <button class="download-btn" onclick="openLocker()">⬇ Download</button>
   </div>
 
-  <!-- Continue for other cards... -->
+  <div class="card">
+    <img src="https://b.top4top.io/p_34066ixq51.jpg" alt="Fortnite Mobile" />
+    <h2>Fortnite Mobile</h2>
+    <p class="rating">⭐⭐⭐⭐</p>
+    <p class="downloads">2,800 downloads</p>
+    <button class="download-btn" onclick="openLocker()">⬇ Download</button>
+  </div>
+
+  <div class="card">
+    <img src="https://e.top4top.io/p_3406ddref1.jpg" alt="Roblox" />
+    <h2>Roblox</h2>
+    <p class="rating">⭐⭐⭐⭐⭐</p>
+    <p class="downloads">5,100 downloads</p>
+    <button class="download-btn" onclick="openLocker()">⬇ Download</button>
+  </div>
+
+  <div class="card">
+    <img src="https://e.top4top.io/p_3406dpns11.jpg" alt="Valorant" />
+    <h2>Valorant Mobile</h2>
+    <p class="rating">⭐⭐⭐⭐⭐</p>
+    <p class="downloads">3,400 downloads</p>
+    <button class="download-btn" onclick="openLocker()">⬇ Download</button>
+  </div>
+
+  <div class="card">
+    <img src="https://h.top4top.io/p_3406dxrtk1.png" alt="BASEBALL 9" />
+    <h2>Baseball 9</h2>
+    <p class="rating">⭐⭐⭐⭐</p>
+    <p class="downloads">5,500 downloads</p>
+    <button class="download-btn" onclick="openLocker()">⬇ Download</button>
+  </div>
+
+  <div class="card">
+    <img src="https://d.top4top.io/p_3406x5kaq1.jpg" alt="God of War" />
+    <h2>God of War Mobile</h2>
+    <p class="rating">⭐⭐⭐⭐</p>
+    <p class="downloads">2,600 downloads</p>
+    <button class="download-btn" onclick="openLocker()">⬇ Download</button>
+  </div>
+
+  <div class="card">
+    <img src="https://j.top4top.io/p_34064g5oz1.jpg" alt="Euro Truck 2" />
+    <h2>Euro Truck Simulator 2 Mobile</h2>
+    <p class="rating">⭐⭐⭐⭐⭐</p>
+    <p class="downloads">4,300 downloads</p>
+    <button class="download-btn" onclick="openLocker()">⬇ Download</button>
+  </div>
+
+  <div class="card">
+    <img src="https://d.top4top.io/p_3406rzhlt1.png" alt="Monopoly Go" />
+    <h2>Monopoly Go!</h2>
+    <p class="rating">⭐⭐⭐⭐</p>
+    <p class="downloads">3,000 downloads</p>
+    <button class="download-btn" onclick="openLocker()">⬇ Download</button>
+  </div>
+
+  <div class="card">
+    <img src="https://i.top4top.io/p_3406hix201.jpg" alt="The Last of Us" />
+    <h2>The Last of Us Part 1 Mobile</h2>
+    <p class="rating">⭐⭐⭐⭐</p>
+    <p class="downloads">2,200 downloads</p>
+    <button class="download-btn" onclick="openLocker()">⬇ Download</button>
+  </div>
+
+  <div class="card">
+    <img src="https://h.top4top.io/p_3406a5yun1.jpg" alt="Red Dead Redemption 2" />
+    <h2>Red Dead Redemption 2</h2>
+    <p class="rating">⭐⭐⭐⭐⭐</p>
+    <p class="downloads">3,500 downloads</p>
+    <button class="download-btn" onclick="openLocker()">⬇ Download</button>
+  </div>
+
+  <div class="card">
+    <img src="https://h.top4top.io/p_34066996o1.jpg" alt="Fifa 25" />
+    <h2>Fifa 25 Mobile</h2>
+    <p class="rating">⭐⭐⭐⭐⭐</p>
+    <p class="downloads">4,000 downloads</p>
+    <button class="download-btn" onclick="openLocker()">⬇ Download</button>
+  </div>
 </main>
 
 <footer>
-  <a href="#">Terms of Use</a> |
-  <a href="#">Privacy Policy</a>
+  <a href="terms.html" style="color: #00d26a;">Terms of Use</a> | <a href="privacy.html" style="color: #00d26a;">Privacy Policy</a>
+
   <br><br>
   All rights reserved to Convux © 2025
 </footer>
