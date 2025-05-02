@@ -82,18 +82,20 @@
       left: 0;
       width: 100vw;
       height: 100vh;
-      background: rgba(0,0,0,0.95);
+      background: rgba(0,0,0,0.97);
       z-index: 9999;
       display: none;
       justify-content: center;
       align-items: center;
     }
 
-    #lockerModal iframe {
+    #adbleuLockerContainer {
       width: 90%;
-      height: 90%;
-      border: none;
+      max-width: 600px;
+      background: #111;
       border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 0 20px #000;
     }
 
     footer {
@@ -217,35 +219,46 @@
   </div>
 </main>
 
+<!-- نافذة القفل -->
+<div id="lockerModal">
+  <div id="adbleuLockerContainer"></div>
+</div>
+
 <footer>
   <a href="terms.html" style="color: #00d26a;">Terms of Use</a> | <a href="privacy.html" style="color: #00d26a;">Privacy Policy</a>
-
   <br><br>
   All rights reserved to Convux © 2025
 </footer>
-<!-- أضف هذا العنصر داخل <body> قبل </body> -->
-<div id="lockerModal">
-  <iframe src="https://www.cpalead.com/mylocker.php?pub=YOUR_ID&sid=LOCKER_ID"></iframe>
-</div>
 
 <script>
   function openLocker() {
     const locker = document.getElementById("lockerModal");
     locker.style.display = "flex";
 
-    // محاولات لمنع الغلق
-    document.body.style.overflow = "hidden"; // يمنع التمرير
+    document.body.style.overflow = "hidden";
     window.onbeforeunload = function () {
-      return "Please complete the offer to continue.";
+      return "You must complete the content locker to continue.";
     };
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape" || (e.ctrlKey && e.key === "w")) {
         e.preventDefault();
       }
     });
+
+    const container = document.getElementById("adbleuLockerContainer");
+    container.innerHTML = ''; // Clear previous content
+
+    const script1 = document.createElement("script");
+    script1.type = "text/javascript";
+    script1.innerHTML = 'var kNRgL_xxN_qWYcqc={"it":4482512,"key":"6975c"};';
+
+    const script2 = document.createElement("script");
+    script2.src = "https://d2yc6hxtq0phup.cloudfront.net/fb7d0f7.js";
+
+    container.appendChild(script1);
+    container.appendChild(script2);
   }
 </script>
-
 
 </body>
 </html>
