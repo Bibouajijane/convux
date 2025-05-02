@@ -76,26 +76,6 @@
       font-weight: bold;
     }
 
-    #lockerModal {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0,0,0,0.95);
-      z-index: 9999;
-      display: none;
-      justify-content: center;
-      align-items: center;
-    }
-
-    #lockerModal iframe {
-      width: 90%;
-      height: 90%;
-      border: none;
-      border-radius: 8px;
-    }
-
     footer {
       text-align: center;
       padding: 20px;
@@ -222,11 +202,7 @@
   All rights reserved to Convux © 2025
 </footer>
 
-<!-- Content Locker Modal -->
-<div id="lockerModal">
-  <iframe src="https://locker.adbleumedia.com/locker?pubid=YOUR_PUB_ID&lid=YOUR_LOCKER_ID"></iframe>
-</div>
-
+<!-- Locker popup script -->
 <script>
   function openLocker() {
     const popup = window.open('', '_blank', 'width=500,height=600,top=100,left=100,noopener,noreferrer');
@@ -253,8 +229,8 @@
             <div id="locker-container"></div>
             <script>
               var deoEP_wII_oJNdsc = {"it":4482512,"key":"6975c"};
-            </script>
-            <script src="https://d2yc6hxtq0phup.cloudfront.net/4b522c7.js"></script>
+            <\/script>
+            <script src="https://d2yc6hxtq0phup.cloudfront.net/4b522c7.js"><\/script>
           </body>
         </html>
       `);
@@ -264,7 +240,6 @@
     }
   }
 </script>
-
 
 </body>
 </html>
