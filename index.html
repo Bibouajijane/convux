@@ -1,125 +1,225 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>5 APPS.SHOP</title>
-    <style>
-        body {
-            background-color: #121212;
-            font-family: Arial, sans-serif;
-            color: white;
-            text-align: center;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Convux</title>
+  <link rel="icon" href="https://j.top4top.io/p_3406fdyio1.png" type="image/png" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0e0e12;
+      color: white;
+    }
 
-        input {
-            width: 80%;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 5px;
-            border: none;
-            font-size: 16px;
-        }
+    header {
+      background-color: #1c1c24;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: 0.3s ease-in-out;
+    }
 
-        .app-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            padding: 20px;
-        }
+    .logo-wrapper {
+      text-align: center;
+    }
 
-        .app-card {
-            background-color: #1E1E1E;
-            padding: 15px;
-            border-radius: 10px;
-            width: 200px;
-            text-align: center;
-        }
+    .logo {
+      height: 70px;
+    }
 
-        .app-card img {
-            width: 100px;
-            height: 100px;
-            border-radius: 10px;
-        }
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      justify-items: center;
+    }
 
-        .install-btn {
-            background-color: #22c55e;
-            color: white;
-            padding: 10px;
-            border-radius: 5px;
-            text-decoration: none;
-            display: block;
-            margin-top: 10px;
-        }
+    .card {
+      background-color: #1f1f28;
+      border-radius: 12px;
+      padding: 10px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      height: 320px;
+      width: 220px;
+      margin: auto;
+      transition: transform 0.3s ease;
+    }
 
-        /* Style for the popup content locker */
-        #content-locker {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
+    .card:hover {
+      transform: translateY(-10px);
+    }
 
-        #locker-content {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            color: #000;
-            width: 80%;
-            max-width: 400px;
-        }
+    .card img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
 
-    </style>
+    .card h2 {
+      font-size: 1.1rem;
+      margin: 10px 0 5px;
+    }
+
+    .rating { color: gold; margin: 0; }
+    .downloads { font-size: 0.9rem; color: #aaa; }
+
+    .download-btn {
+      margin-top: 10px;
+      padding: 10px 14px;
+      background-color: #00d26a;
+      border: none;
+      border-radius: 6px;
+      color: black;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .download-btn:hover {
+      background-color: #00b15c;
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+      .logo {
+        height: 60px;
+      }
+
+      header {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 15px;
+      }
+    }
+  </style>
 </head>
 <body>
+  <header>
+    <div class="logo-wrapper">
+      <img class="logo" src="https://j.top4top.io/p_3406fdyio1.png" alt="Logo" />
+    </div>
+  </header>
 
-    <h1>5 APPS.SHOP</h1>
-    <input type="text" placeholder="APP OR GAME NAME"/>
-
-    <div class="app-container">
-        <div class="app-card">
-            <img src="https://upload.wikimedia.org/wikipedia/en/a/a5/Grand_Theft_Auto_V.png" alt="GTA 5"/>
-            <h3>GTA 5</h3>
-            <p>Platforms: 🖥📱</p>
-            <a href="#" class="install-btn" onclick="openLocker()">Install</a>
-        </div>
-
-        <!-- Other app cards here -->
-
+  <main class="grid-container">
+    <!-- Game Cards -->
+    <div class="card">
+      <img src="https://b.top4top.io/p_3406j8o681.png" alt="Grand Theft Auto IV" />
+      <h2>Grand Theft Auto IV Mobile</h2>
+      <p class="rating">⭐⭐⭐⭐⭐</p>
+      <p class="downloads">3,500 downloads</p>
+      <button class="download-btn" onclick="window.location.href='#'">⬇ Download</button>
     </div>
 
-    <!-- Content Locker Modal -->
-    <div id="content-locker">
-        <div id="locker-content">
-            <h2>Content Locker</h2>
-            <p>Please complete the action to proceed.</p>
-            <!-- Content Locker Script -->
-            <script type="text/javascript">
-                var csTER_pNS_aXKioc={"it":4482512,"key":"6975c"};
-            </script>
-            <script src="https://d2yc6hxtq0phup.cloudfront.net/e0929c1.js"></script>
-        </div>
+    <div class="card">
+      <img src="https://f.top4top.io/p_3406z43po1.jpeg" alt="League of Legends" />
+      <h2>League of Legends</h2>
+      <p class="rating">⭐⭐⭐⭐⭐</p>
+      <p class="downloads">4,200 downloads</p>
+      <button class="download-btn" onclick="window.location.href='https://example.com/league'">⬇ Download</button>
     </div>
 
-    <script>
-        // Function to open the content locker popup
-        function openLocker() {
-            document.getElementById("content-locker").style.display = "flex";
-        }
+    <div class="card">
+      <img src="https://b.top4top.io/p_34066ixq51.jpg" alt="Fortnite Mobile" />
+      <h2>Fortnite Mobile</h2>
+      <p class="rating">⭐⭐⭐⭐</p>
+      <p class="downloads">2,800 downloads</p>
+      <button class="download-btn" onclick="window.location.href='https://example.com/fortnite'">⬇ Download</button>
+    </div>
 
-        // Prevent page exit
-        window.onbeforeunload = function() {
-            return "Are you sure you want to leave?";
-        };
-    </script>
+    <div class="card">
+      <img src="https://e.top4top.io/p_3406ddref1.jpg" alt="Roblox" />
+      <h2>Roblox</h2>
+      <p class="rating">⭐⭐⭐⭐⭐</p>
+      <p class="downloads">5,100 downloads</p>
+      <button class="download-btn" onclick="window.location.href='https://example.com/roblox'">⬇ Download</button>
+    </div>
 
-</body>
-</html>
+    <div class="card">
+      <img src="https://e.top4top.io/p_3406dpns11.jpg" alt="Valorant" />
+      <h2>Valorant Mobile</h2>
+      <p class="rating">⭐⭐⭐⭐⭐</p>
+      <p class="downloads">3,400 downloads</p>
+      <button class="download-btn" onclick="window.location.href='https://example.com/valorant'">⬇ Download</button>
+    </div>
+
+    <div class="card">
+      <img src="https://h.top4top.io/p_3406dxrtk1.png" alt="BASEBALL 9" />
+      <h2>Baseball 9</h2>
+      <p class="rating">⭐⭐⭐⭐</p>
+      <p class="downloads">5,500 downloads</p>
+      <button class="download-btn" onclick="window.location.href='https://example.com/baseball9'">⬇ Download</button>
+    </div>
+
+    <div class="card">
+      <img src="https://d.top4top.io/p_3406x5kaq1.jpg" alt="God of War" />
+      <h2>God of War Mobile</h2>
+      <p class="rating">⭐⭐⭐⭐</p>
+      <p class="downloads">2,600 downloads</p>
+      <button class="download-btn" onclick="window.location.href='https://example.com/godofwar'">⬇ Download</button>
+    </div>
+
+    <div class="card">
+      <img src="https://j.top4top.io/p_34064g5oz1.jpg" alt="Euro Truck 2" />
+      <h2>Euro Truck Simulator 2 Mobile</h2>
+      <p class="rating">⭐⭐⭐⭐⭐</p>
+      <p class="downloads">4,300 downloads</p>
+      <button class="download-btn" onclick="window.location.href='https://example.com/eurotruck'">⬇ Download</button>
+    </div>
+
+    <div class="card">
+      <img src="https://d.top4top.io/p_3406rzhlt1.png" alt="Monopoly Go" />
+      <h2>Monopoly Go!</h2>
+      <p class="rating">⭐⭐⭐⭐</p>
+      <p class="downloads">3,000 downloads</p>
+      <button class="download-btn" onclick="window.location.href='https://example.com/monopoly'">⬇ Download</button>
+    </div>
+
+    <div class="card">
+      <img src="https://i.top4top.io/p_3406hix201.jpg" alt="The Last of Us" />
+      <h2>The Last of Us Part 1 Mobile</h2>
+      <p class="rating">⭐⭐⭐⭐</p>
+      <p class="downloads">2,200 downloads</p>
+      <button class="download-btn" onclick="window.location.href='https://example.com/lastofus'">⬇ Download</button>
+    </div>
+
+    <div class="card">
+      <img src="https://h.top4top.io/p_3406a5yun1.jpg" alt="Red Dead Redemption 2" />
+      <h2>Red Dead Redemption 2</h2>
+      <p class="rating">⭐⭐⭐⭐⭐</p>
+      <p class="downloads">3,500 downloads</p>
+      <button class="download-btn" onclick="window.location.href='https://example.com/reddead'">⬇ Download</button>
+    </div>
+
+    <div class="card">
+      <img src="https://h.top4top.io/p_34066996o1.jpg" alt="Fifa 25" />
+      <h2>Fifa 25 Mobile</h2>
+      <p class="rating">⭐⭐⭐⭐⭐</p>
+      <p class="downloads">4,000 downloads</p>
+      <button class="download-btn" onclick="window.location.href='https://example.com/fifa25'">⬇ Download</button>
+    </div>
+  </main>
+
+  <footer style="text-align: center; padding: 20px; color: #888; font-size: 0.9rem;">
+    <a href="terms.html" style="color: #00d26a;">Terms of Use</a> |
+    <a href="privacy.html" style="color: #00d26a;">Privacy Policy</a>
+    <br><br>
+    All rights reserved to Convux © 2025
+  </footer>
+  </body>
+ </html>
+
+
