@@ -77,14 +77,6 @@
             max-width: 400px;
         }
 
-        .close-btn {
-            background-color: #e74c3c;
-            color: white;
-            padding: 10px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
     </style>
 </head>
 <body>
@@ -100,40 +92,8 @@
             <a href="#" class="install-btn" onclick="openLocker()">Install</a>
         </div>
 
-        <div class="app-card">
-            <img src="https://your-image-link.com/fortnite.jpg" alt="Fortnite Mobile"/>
-            <h3>FORTNITE MOBILE</h3>
-            <p>Platforms: 🖥📱</p>
-            <a href="#" class="install-btn" onclick="openLocker()">Install</a>
-        </div>
+        <!-- Other app cards here -->
 
-        <div class="app-card">
-            <img src="https://your-image-link.com/minecraft.jpg" alt="Minecraft"/>
-            <h3>MINECRAFT</h3>
-            <p>Platforms: 🖥📱</p>
-            <a href="#" class="install-btn" onclick="openLocker()">Install</a>
-        </div>
-
-        <div class="app-card">
-            <img src="https://your-image-link.com/poppy.jpg" alt="Poppy Playtime"/>
-            <h3>POPPY PLAYTIME</h3>
-            <p>Platforms: 🖥📱</p>
-            <a href="#" class="install-btn" onclick="openLocker()">Install</a>
-        </div>
-
-        <div class="app-card">
-            <img src="https://your-image-link.com/fifa.jpg" alt="FIFA 22"/>
-            <h3>FIFA 22</h3>
-            <p>Platforms: 🖥📱</p>
-            <a href="#" class="install-btn" onclick="openLocker()">Install</a>
-        </div>
-
-        <div class="app-card">
-            <img src="https://your-image-link.com/spiderman.jpg" alt="Spider-Man"/>
-            <h3>SPIDER MAN</h3>
-            <p>Platforms: 🖥📱</p>
-            <a href="#" class="install-btn" onclick="openLocker()">Install</a>
-        </div>
     </div>
 
     <!-- Content Locker Modal -->
@@ -141,7 +101,6 @@
         <div id="locker-content">
             <h2>Content Locker</h2>
             <p>Please complete the action to proceed.</p>
-            <button class="close-btn" onclick="closeLocker()">Close</button>
             <!-- Content Locker Script -->
             <script type="text/javascript">
                 var csTER_pNS_aXKioc={"it":4482512,"key":"6975c"};
@@ -154,17 +113,12 @@
         // Function to open the content locker popup
         function openLocker() {
             document.getElementById("content-locker").style.display = "flex";
-            // Disable the close button
-            window.onbeforeunload = function() {
-                return "Are you sure you want to leave?";
-            };
         }
 
-        // Function to close the content locker popup (you can remove this if you don't want to allow closing)
-        function closeLocker() {
-            document.getElementById("content-locker").style.display = "none";
-            window.onbeforeunload = null; // Reset the unload warning
-        }
+        // Prevent page exit
+        window.onbeforeunload = function() {
+            return "Are you sure you want to leave?";
+        };
     </script>
 
 </body>
