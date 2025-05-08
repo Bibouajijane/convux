@@ -1,260 +1,278 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="https://j.top4top.io/p_3406fdyio1.png" type="image/png" />
-    <title>Convux - Premium MOD Games</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: #121212;
-            color: #e0e0e0;
-            line-height: 1.6;
-        }
-        
-        header {
-            background: linear-gradient(135deg, #0a0a0a 0%, #1e1e1e 100%);
-            color: #4CAF50;
-            padding: 2rem 0;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-            border-bottom: 2px solid #4CAF50;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-        }
-        
-        .tagline {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            color: #aaa;
-        }
-        
-        .games-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
-            padding: 40px 0;
-        }
-        
-        .game-card {
-            background: #1e1e1e;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            transition: transform 0.3s ease;
-            border: 1px solid #333;
-        }
-        
-        .game-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.2);
-        }
-        
-        .game-cover {
-            height: 180px;
-            background-color: #333;
-            background-size: cover;
-            background-position: center;
-            position: relative;
-        }
-        
-        .game-cover::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 60px;
-            background: linear-gradient(to top, rgba(30,30,30,0.9), transparent);
-        }
-        
-        .game-header {
-            padding: 20px;
-            position: relative;
-        }
-        
-        .game-title {
-            font-size: 1.5rem;
-            margin-bottom: 5px;
-            color: #4CAF50;
-        }
-        
-        .game-meta {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.9rem;
-            color: #aaa;
-        }
-        
-        .game-rating {
-            display: flex;
-            align-items: center;
-        }
-        
-        .star {
-            color: #FFD700;
-            margin-right: 3px;
-        }
-        
-        .game-content {
-             display: flex;
-              align-items: center;
-              justify-content: center;
-              padding: 15px 20px;
-              position: sticky;
-              top: 0;
-              z-index: 10;
-                }
-        
-        .mod-features {
-            list-style-type: none;
-            margin: 15px 0;
-        }
-        
-        .mod-features li {
-            padding: 8px 0;
-            display: flex;
-            align-items: center;
-            border-bottom: 1px solid #333;
-        }
-        
-        .mod-features li:last-child {
-            border-bottom: none;
-        }
-        
-        .mod-features li:before {
-            content: "✓";
-            color: #4CAF50;
-            margin-right: 10px;
-            font-weight: bold;
-            font-size: 1.1rem;
-        }
-        
-        .download-btn {
-            display: block;
-            background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
-            color: white;
-            padding: 12px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            text-align: center;
-            margin-top: 15px;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .download-btn:hover {
-            background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
-            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
-        }
-        
-        .why-us {
-            background: #1e1e1e;
-            padding: 30px;
-            border-radius: 10px;
-            margin: 40px 0;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            text-align: center;
-            border: 1px solid #333;
-        }
-        
-        .why-us h2 {
-            margin-bottom: 20px;
-            color: #4CAF50;
-        }
-        
-        .features {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-        
-        .feature {
-            background: #2a2a2a;
-            padding: 15px 25px;
-            border-radius: 5px;
-            font-weight: bold;
-            color: #4CAF50;
-            border: 1px solid #333;
-        }
-        
-        .explore-more {
-            text-align: center;
-            margin: 30px 0;
-        }
-        
-        .explore-btn {
-            display: inline-block;
-            background: #1e1e1e;
-            color: #4CAF50;
-            padding: 12px 30px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            border: 2px solid #4CAF50;
-        }
-        
-        .explore-btn:hover {
-            background: #4CAF50;
-            color: #121212;
-            transform: translateY(-2px);
-        }
-        
-        footer {
-            background: #0a0a0a;
-            color: #aaa;
-            text-align: center;
-            padding: 20px 0;
-            margin-top: 50px;
-            border-top: 1px solid #333;
-        }
-        
-        @media (max-width: 768px) {
-            .games-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .game-cover {
-                height: 150px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Download premium MOD APK games with unlimited features and no ads. Safe, tested, and updated regularly." />
+  <link rel="icon" href="https://j.top4top.io/p_3406fdyio1.png" type="image/png" />
+  <title>Convux - Premium MOD Games</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #121212;
+      color: #e0e0e0;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, #0a0a0a 0%, #1e1e1e 100%);
+      color: #4caf50;
+      padding: 2rem 0;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      border-bottom: 2px solid #4caf50;
+    }
+
+    .logo {
+      max-width: 80px;
+      margin-bottom: 10px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .tagline {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      color: #aaa;
+    }
+
+    .games-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 25px;
+      padding: 40px 0;
+    }
+
+    .game-card {
+      background: #1e1e1e;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+      border: 1px solid #333;
+    }
+
+    .game-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(76, 175, 80, 0.2);
+    }
+
+    .game-cover {
+      height: 180px;
+      background-color: #333;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .game-cover::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: linear-gradient(to top, rgba(30, 30, 30, 0.9), transparent);
+    }
+
+    .game-header {
+      padding: 20px;
+      position: relative;
+    }
+
+    .game-title {
+      font-size: 1.5rem;
+      margin-bottom: 5px;
+      color: #4caf50;
+    }
+
+    .game-title:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    .game-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    .game-rating {
+      display: flex;
+      align-items: center;
+    }
+
+    .star {
+      color: #ffd700;
+      margin-right: 3px;
+    }
+
+    .game-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding: 15px 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .game-content h3 {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      color: #4caf50;
+    }
+
+    .mod-features {
+      list-style-type: none;
+      margin: 10px 0;
+      width: 100%;
+    }
+
+    .mod-features li {
+      padding: 8px 0;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #333;
+    }
+
+    .mod-features li:last-child {
+      border-bottom: none;
+    }
+
+    .mod-features li::before {
+      content: "✓";
+      color: #4caf50;
+      margin-right: 10px;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    .download-btn {
+      display: block;
+      background: linear-gradient(135deg, #2e7d32 0%, #4caf50 100%);
+      color: white;
+      padding: 12px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 15px;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      width: 100%;
+    }
+
+    .download-btn:hover {
+      background: linear-gradient(135deg, #4caf50 0%, #2e7d32 100%);
+      box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
+    }
+
+    .why-us {
+      background: #1e1e1e;
+      padding: 30px;
+      border-radius: 10px;
+      margin: 40px 0;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      border: 1px solid #333;
+    }
+
+    .why-us h2 {
+      margin-bottom: 20px;
+      color: #4caf50;
+    }
+
+    .features {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .feature {
+      background: #2a2a2a;
+      padding: 15px 25px;
+      border-radius: 5px;
+      font-weight: bold;
+      color: #4caf50;
+      border: 1px solid #333;
+    }
+
+    .explore-more {
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    .explore-btn {
+      display: inline-block;
+      background: #1e1e1e;
+      color: #4caf50;
+      padding: 12px 30px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      border: 2px solid #4caf50;
+    }
+
+    .explore-btn:hover {
+      background: #4caf50;
+      color: #121212;
+      transform: translateY(-2px);
+    }
+
+    footer {
+      background: #0a0a0a;
+      color: #aaa;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 50px;
+      border-top: 1px solid #333;
+    }
+
+    @media (max-width: 768px) {
+      .games-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .game-cover {
+        height: 150px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-              <img class="logo" src="https://j.top4top.io/p_3406fdyio1.png" alt="Logo" />
-              <p class="tagline">Your Ultimate Source for Premium MOD Games!</p>
-        </div>
-    </header>
-    
+  <header>
     <div class="container">
-        <div class="games-grid">
-            <!-- Game Card 1 -->
+      <img class="logo" src="https://j.top4top.io/p_3406fdyio1.png" alt="Convux Logo" />
+      <p class="tagline">Your Ultimate Source for Premium MOD Games!</p>
+    </div>
+  </header>
+
+  <div class="container">
+   <!-- Game Card 1 -->
             <div class="game-card">
                 <div class="game-cover" style="background-image: url('https://via.placeholder.com/300x180/333333/4CAF50?text=Baseball+9')"></div>
                 <div class="game-header">
@@ -372,25 +390,25 @@
                 </div>
             </div>
         </div>
-        
-        <div class="why-us">
-            <h2>Why Choose Us?</h2>
-            <div class="features">
-                <div class="feature">🚀 100% Safe & Tested MODs</div>
-                <div class="feature">🔄 Regular Updates</div>
-                <div class="feature">📥 Fast Download Links</div>
-            </div>
-        </div>
-        
-        <div class="explore-more">
-            <a href="#" class="explore-btn">Explore More Games</a>
-        </div>
+
+    <div class="why-us">
+      <h2>Why Choose Us?</h2>
+      <div class="features">
+        <div class="feature">🚀 100% Safe & Tested MODs</div>
+        <div class="feature">🔄 Regular Updates</div>
+        <div class="feature">📥 Fast Download Links</div>
+      </div>
     </div>
-    
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Convux. All rights reserved.</p>
-        </div>
-    </footer>
+
+    <div class="explore-more">
+      <a href="#" class="explore-btn">Explore More Games</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Convux. All rights reserved.</p>
+    </div>
+  </footer>
 </body>
 </html>
