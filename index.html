@@ -1,225 +1,389 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Convux</title>
-  <link rel="icon" href="https://j.top4top.io/p_3406fdyio1.png" type="image/png" />
-  
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #0e0e12;
-      color: white;
-    }
-
-    header {
-      background-color: #1c1c24;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 15px 20px;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      transition: 0.3s ease-in-out;
-    }
-
-    .logo-wrapper {
-      text-align: center;
-    }
-
-    .logo {
-      height: 70px;
-    }
-
-    .grid-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      padding: 20px;
-      justify-items: center;
-    }
-
-    .card {
-      background-color: #1f1f28;
-      border-radius: 12px;
-      padding: 10px;
-      text-align: center;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-between;
-      height: 320px;
-      width: 220px;
-      margin: auto;
-      transition: transform 0.3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-10px);
-    }
-
-    .card img {
-      width: 100%;
-      height: 140px;
-      object-fit: cover;
-      border-radius: 8px;
-    }
-
-    .card h2 {
-      font-size: 1.1rem;
-      margin: 10px 0 5px;
-    }
-
-    .rating { color: gold; margin: 0; }
-    .downloads { font-size: 0.9rem; color: #aaa; }
-
-    .download-btn {
-      margin-top: 10px;
-      padding: 10px 14px;
-      background-color: #00d26a;
-      border: none;
-      border-radius: 6px;
-      color: black;
-      cursor: pointer;
-      font-weight: bold;
-      transition: background-color 0.3s ease, transform 0.2s ease;
-    }
-
-    .download-btn:hover {
-      background-color: #00b15c;
-      transform: scale(1.05);
-    }
-
-    @media (max-width: 768px) {
-      .logo {
-        height: 60px;
-      }
-
-      header {
-        flex-direction: column;
-        align-items: center;
-        padding: 10px 15px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Hub - Premium MOD Games</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1e1e1e 100%);
+            color: #4CAF50;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            border-bottom: 2px solid #4CAF50;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .tagline {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            color: #aaa;
+        }
+        
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            padding: 40px 0;
+        }
+        
+        .game-card {
+            background: #1e1e1e;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+            border: 1px solid #333;
+        }
+        
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.2);
+        }
+        
+        .game-cover {
+            height: 180px;
+            background-color: #333;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .game-cover::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: linear-gradient(to top, rgba(30,30,30,0.9), transparent);
+        }
+        
+        .game-header {
+            padding: 20px;
+            position: relative;
+        }
+        
+        .game-title {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+            color: #4CAF50;
+        }
+        
+        .game-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        .game-rating {
+            display: flex;
+            align-items: center;
+        }
+        
+        .star {
+            color: #FFD700;
+            margin-right: 3px;
+        }
+        
+        .game-content {
+            padding: 0 20px 20px 20px;
+        }
+        
+        .mod-features {
+            list-style-type: none;
+            margin: 15px 0;
+        }
+        
+        .mod-features li {
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #333;
+        }
+        
+        .mod-features li:last-child {
+            border-bottom: none;
+        }
+        
+        .mod-features li:before {
+            content: "✓";
+            color: #4CAF50;
+            margin-right: 10px;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
+        .download-btn {
+            display: block;
+            background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .download-btn:hover {
+            background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
+        }
+        
+        .why-us {
+            background: #1e1e1e;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 40px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            text-align: center;
+            border: 1px solid #333;
+        }
+        
+        .why-us h2 {
+            margin-bottom: 20px;
+            color: #4CAF50;
+        }
+        
+        .features {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .feature {
+            background: #2a2a2a;
+            padding: 15px 25px;
+            border-radius: 5px;
+            font-weight: bold;
+            color: #4CAF50;
+            border: 1px solid #333;
+        }
+        
+        .explore-more {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .explore-btn {
+            display: inline-block;
+            background: #1e1e1e;
+            color: #4CAF50;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: 2px solid #4CAF50;
+        }
+        
+        .explore-btn:hover {
+            background: #4CAF50;
+            color: #121212;
+            transform: translateY(-2px);
+        }
+        
+        footer {
+            background: #0a0a0a;
+            color: #aaa;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 50px;
+            border-top: 1px solid #333;
+        }
+        
+        @media (max-width: 768px) {
+            .games-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .game-cover {
+                height: 150px;
+            }
+        }
+    </style>
 </head>
 <body>
- <header>
-  <a href="index.html">
-    <img class="logo" src="https://j.top4top.io/p_3406fdyio1.png" alt="Logo" />
-  </a>
-</header>
-
-  <main class="grid-container">
-    <!-- Game Cards -->
-    <div class="card">
-      <img src="https://e.top4top.io/p_3409w5bsu0.jpg" alt="Grand Theft Auto IV" />
-      <h2>Grand Theft Auto V Mobile</h2>
-      <p class="rating">⭐⭐⭐⭐⭐</p>
-      <p class="downloads">3,500 downloads</p>
-      <button class="download-btn" onclick="window.location.href='https://smrturl.co/79d2113'">⬇ Download</button>
-
+    <header>
+        <div class="container">
+            <h1>Game Hub</h1>
+            <p class="tagline">Your Ultimate Source for Premium MOD Games!</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="games-grid">
+            <!-- Game Card 1 -->
+            <div class="game-card">
+                <div class="game-cover" style="background-image: url('https://via.placeholder.com/300x180/333333/4CAF50?text=Baseball+9')"></div>
+                <div class="game-header">
+                    <h2 class="game-title">Baseball 9</h2>
+                    <div class="game-meta">
+                        <span class="game-rating">
+                            <span class="star">★</span> 4.8 (4.2k reviews)
+                        </span>
+                        <span>Sports | 200 MB</span>
+                    </div>
+                </div>
+                <div class="game-content">
+                    <h3>MOD Features:</h3>
+                    <ul class="mod-features">
+                        <li>Fully Paid Version (Unlocked)</li>
+                        <li>Unlimited Money & Resources</li>
+                        <li>All Items Unlocked</li>
+                        <li>No Ads | Enhanced Performance</li>
+                    </ul>
+                    <a href="#" class="download-btn">Download Now</a>
+                </div>
+            </div>
+            
+            <!-- Game Card 2 -->
+            <div class="game-card">
+                <div class="game-cover" style="background-image: url('https://via.placeholder.com/300x180/333333/4CAF50?text=CarX+Racing')"></div>
+                <div class="game-header">
+                    <h2 class="game-title">CarX Street Racing</h2>
+                    <div class="game-meta">
+                        <span class="game-rating">
+                            <span class="star">★</span> 4.6 (3.5k reviews)
+                        </span>
+                        <span>Racing | 350 MB</span>
+                    </div>
+                </div>
+                <div class="game-content">
+                    <h3>MOD Features:</h3>
+                    <ul class="mod-features">
+                        <li>Premium Unlocked</li>
+                        <li>Unlimited Gold & Cash</li>
+                        <li>All Cars & Tracks Unlocked</li>
+                        <li>Ad-Free Experience</li>
+                    </ul>
+                    <a href="#" class="download-btn">Download Now</a>
+                </div>
+            </div>
+            
+            <!-- Game Card 3 -->
+            <div class="game-card">
+                <div class="game-cover" style="background-image: url('https://via.placeholder.com/300x180/333333/4CAF50?text=Stickman+Legends')"></div>
+                <div class="game-header">
+                    <h2 class="game-title">Stickman Legends: Shadow War</h2>
+                    <div class="game-meta">
+                        <span class="game-rating">
+                            <span class="star">★</span> 4.7 (2.8k reviews)
+                        </span>
+                        <span>Action RPG | 150 MB</span>
+                    </div>
+                </div>
+                <div class="game-content">
+                    <h3>MOD Features:</h3>
+                    <ul class="mod-features">
+                        <li>Full VIP Access</li>
+                        <li>Unlimited Gems & Coins</li>
+                        <li>All Heroes & Weapons Unlocked</li>
+                        <li>High FPS Mode</li>
+                    </ul>
+                    <a href="#" class="download-btn">Download Now</a>
+                </div>
+            </div>
+            
+            <!-- Game Card 4 -->
+            <div class="game-card">
+                <div class="game-cover" style="background-image: url('https://via.placeholder.com/300x180/333333/4CAF50?text=DLS+2025')"></div>
+                <div class="game-header">
+                    <h2 class="game-title">Dream League Soccer 2025</h2>
+                    <div class="game-meta">
+                        <span class="game-rating">
+                            <span class="star">★</span> 4.9 (5.1k reviews)
+                        </span>
+                        <span>Sports | 400 MB</span>
+                    </div>
+                </div>
+                <div class="game-content">
+                    <h3>MOD Features:</h3>
+                    <ul class="mod-features">
+                        <li>Unlimited Coins & Tokens</li>
+                        <li>All Players & Kits Unlocked</li>
+                        <li>No Ads | 60 FPS Support</li>
+                    </ul>
+                    <a href="#" class="download-btn">Download Now</a>
+                </div>
+            </div>
+            
+            <!-- Game Card 5 -->
+            <div class="game-card">
+                <div class="game-cover" style="background-image: url('https://via.placeholder.com/300x180/333333/4CAF50?text=Clash+of+Clans')"></div>
+                <div class="game-header">
+                    <h2 class="game-title">Clash of Clans MOD</h2>
+                    <div class="game-meta">
+                        <span class="game-rating">
+                            <span class="star">★</span> 4.5 (6.7k reviews)
+                        </span>
+                        <span>Strategy | 250 MB</span>
+                    </div>
+                </div>
+                <div class="game-content">
+                    <h3>MOD Features:</h3>
+                    <ul class="mod-features">
+                        <li>Unlimited Gems & Elixir</li>
+                        <li>Instant Upgrades</li>
+                        <li>All Buildings Unlocked</li>
+                    </ul>
+                    <a href="#" class="download-btn">Download Now</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="why-us">
+            <h2>Why Choose Us?</h2>
+            <div class="features">
+                <div class="feature">🚀 100% Safe & Tested MODs</div>
+                <div class="feature">🔄 Regular Updates</div>
+                <div class="feature">📥 Fast Download Links</div>
+            </div>
+        </div>
+        
+        <div class="explore-more">
+            <a href="#" class="explore-btn">Explore More Games</a>
+        </div>
     </div>
-
-    <div class="card">
-      <img src="https://f.top4top.io/p_3406z43po1.jpeg" alt="League of Legends" />
-      <h2>League of Legends</h2>
-      <p class="rating">⭐⭐⭐⭐⭐</p>
-      <p class="downloads">4,200 downloads</p>
-      <button class="download-btn" onclick="window.location.href='https://link_to_download_1.com'">⬇ Download</button>
-    </div>
-
-    <div class="card">
-      <img src="https://b.top4top.io/p_34066ixq51.jpg" alt="Fortnite Mobile" />
-      <h2>Fortnite Mobile</h2>
-      <p class="rating">⭐⭐⭐⭐</p>
-      <p class="downloads">2,800 downloads</p>
-      <button class="download-btn" onclick="window.location.href='https://link_to_download_2.com'">⬇ Download</button>
-    </div>
-
-    <div class="card">
-      <img src="https://e.top4top.io/p_3406ddref1.jpg" alt="Roblox" />
-      <h2>Roblox</h2>
-      <p class="rating">⭐⭐⭐⭐⭐</p>
-      <p class="downloads">5,100 downloads</p>
-      <button class="download-btn" onclick="window.location.href='https://link_to_download_3.com'">⬇ Download</button>
-    </div>
-
-    <div class="card">
-      <img src="https://e.top4top.io/p_3406dpns11.jpg" alt="Valorant" />
-      <h2>Valorant Mobile</h2>
-      <p class="rating">⭐⭐⭐⭐⭐</p>
-      <p class="downloads">3,400 downloads</p>
-      <button class="download-btn" onclick="window.location.href='https://link_to_download_4.com'">⬇ Download</button>
-    </div>
-
-    <div class="card">
-      <img src="https://h.top4top.io/p_3406dxrtk1.png" alt="BASEBALL 9" />
-      <h2>Baseball 9</h2>
-      <p class="rating">⭐⭐⭐⭐</p>
-      <p class="downloads">5,500 downloads</p>
-      <button class="download-btn" onclick="window.location.href='https://link_to_download_5.com'">⬇ Download</button>
-    </div>
-
-    <div class="card">
-      <img src="https://d.top4top.io/p_3406x5kaq1.jpg" alt="God of War" />
-      <h2>God of War Mobile</h2>
-      <p class="rating">⭐⭐⭐⭐</p>
-      <p class="downloads">2,600 downloads</p>
-      <button class="download-btn" onclick="window.location.href='https://link_to_download_6.com'">⬇ Download</button>
-    </div>
-
-    <div class="card">
-      <img src="https://j.top4top.io/p_34064g5oz1.jpg" alt="Euro Truck 2" />
-      <h2>Euro Truck Simulator 2 Mobile</h2>
-      <p class="rating">⭐⭐⭐⭐⭐</p>
-      <p class="downloads">4,300 downloads</p>
-      <button class="download-btn" onclick="window.location.href='https://link_to_download_7.com'">⬇ Download</button>
-    </div>
-
-    <div class="card">
-      <img src="https://d.top4top.io/p_3406rzhlt1.png" alt="Monopoly Go" />
-      <h2>Monopoly Go!</h2>
-      <p class="rating">⭐⭐⭐⭐</p>
-      <p class="downloads">3,000 downloads</p>
-      <button class="download-btn" onclick="window.location.href='https://link_to_download_8.com'">⬇ Download</button>
-    </div>
-
-    <div class="card">
-      <img src="https://i.top4top.io/p_3406hix201.jpg" alt="The Last of Us" />
-      <h2>The Last of Us Part 1 Mobile</h2>
-      <p class="rating">⭐⭐⭐⭐</p>
-      <p class="downloads">2,200 downloads</p>
-      <button class="download-btn" onclick="window.location.href='https://link_to_download_9.com'">⬇ Download</button>
-    </div>
-
-    <div class="card">
-      <img src="https://h.top4top.io/p_3406a5yun1.jpg" alt="Red Dead Redemption 2" />
-      <h2>Red Dead Redemption 2</h2>
-      <p class="rating">⭐⭐⭐⭐⭐</p>
-      <p class="downloads">3,500 downloads</p>
-      <button class="download-btn" onclick="window.location.href='https://link_to_download_10.com'">⬇ Download</button>
-    </div>
-
-    <div class="card">
-      <img src="https://h.top4top.io/p_34066996o1.jpg" alt="Fifa 25" />
-      <h2>Fifa 25 Mobile</h2>
-      <p class="rating">⭐⭐⭐⭐⭐</p>
-      <p class="downloads">4,000 downloads</p>
-      <button class="download-btn" onclick="window.location.href='https://link_to_download_11.com'">⬇ Download</button>
-    </div>
-  </main>
-
-  <footer style="text-align: center; padding: 20px; color: #888; font-size: 0.9rem;">
-    <a href="terms.html" style="color: #00d26a;">Terms of Use</a> |
-    <a href="privacy.html" style="color: #00d26a;">Privacy Policy</a>
-    <br><br>
-    All rights reserved to Convux © 2025
-  </footer>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Game Hub. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
