@@ -6,15 +6,15 @@
     <title>AI Access Portal - Get Your Free Account</title>
     <style>
         :root {
-            --primary: #3498db;
-            --primary-dark: #2980b9;
+            --primary: #2ecc71;         /* Green */
+            --primary-dark: #27ae60;    /* Darker green */
             --bg-dark: #121a24;
             --card-dark: #1a2433;
             --text-light: #ecf0f1;
             --text-muted: #bdc3c7;
             --danger: #e74c3c;
         }
-        
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: var(--bg-dark);
@@ -23,7 +23,7 @@
             color: var(--text-light);
             transition: background 0.5s ease;
         }
-        
+
         .container {
             max-width: 600px;
             margin: 0 auto;
@@ -31,18 +31,18 @@
             position: relative;
             min-height: 100vh;
         }
-        
+
         header {
             text-align: center;
             padding: 30px 0;
         }
-        
+
         h1 {
             color: var(--primary);
             font-size: 28px;
             margin-bottom: 10px;
         }
-        
+
         .card {
             background-color: var(--card-dark);
             border-radius: 10px;
@@ -53,7 +53,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .card::before {
             content: '';
             position: absolute;
@@ -61,9 +61,9 @@
             left: 0;
             width: 100%;
             height: 3px;
-            background: linear-gradient(90deg, var(--primary), #00d4ff);
+            background: linear-gradient(90deg, var(--primary), #b4ec51);
         }
-        
+
         .security-alert {
             border-left: 4px solid var(--danger);
             background-color: rgba(231, 76, 60, 0.1);
@@ -71,15 +71,15 @@
             margin: 20px 0;
             border-radius: 0 5px 5px 0;
         }
-        
+
         .security-alert h3 {
             color: var(--danger);
             margin-top: 0;
         }
-        
+
         .btn {
             display: block;
-            background: linear-gradient(135deg, var(--primary), #00d4ff);
+            background: linear-gradient(135deg, var(--primary), #b4ec51);
             color: white;
             text-align: center;
             padding: 12px;
@@ -92,24 +92,24 @@
             cursor: pointer;
             width: 100%;
         }
-        
+
         .btn:hover {
-            background: linear-gradient(135deg, var(--primary-dark), #00a8ff);
+            background: linear-gradient(135deg, var(--primary-dark), #a3f54f);
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 212, 255, 0.3);
+            box-shadow: 0 5px 15px rgba(180, 236, 81, 0.3);
         }
-        
+
         .form-group {
             margin-bottom: 20px;
         }
-        
+
         label {
             display: block;
             margin-bottom: 8px;
             font-weight: 600;
             color: var(--text-light);
         }
-        
+
         input, select {
             width: 100%;
             padding: 12px;
@@ -120,13 +120,13 @@
             color: var(--text-light);
             transition: all 0.3s;
         }
-        
+
         input:focus, select:focus {
             outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.3);
+            box-shadow: 0 0 0 2px rgba(46, 204, 113, 0.3);
         }
-        
+
         .password-display {
             background-color: rgba(0, 0, 0, 0.3);
             padding: 15px;
@@ -140,7 +140,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .password-display::after {
             content: '';
             position: absolute;
@@ -148,29 +148,28 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.2), transparent);
+            background: linear-gradient(90deg, transparent, rgba(180, 236, 81, 0.2), transparent);
             animation: shine 2s infinite;
         }
-        
+
         .checkbox-group {
             display: flex;
             align-items: center;
             margin: 20px 0;
         }
-        
+
         .checkbox-group input {
             width: auto;
             margin-right: 10px;
         }
-        
+
         footer {
             text-align: center;
             padding: 20px;
             color: var(--text-muted);
             font-size: 14px;
         }
-        
-        /* Loading effects */
+
         .loader {
             display: none;
             position: fixed;
@@ -184,11 +183,11 @@
             align-items: center;
             flex-direction: column;
         }
-        
+
         .loader.active {
             display: flex;
         }
-        
+
         .spinner {
             width: 50px;
             height: 50px;
@@ -198,7 +197,7 @@
             animation: spin 1s ease-in-out infinite;
             margin-bottom: 20px;
         }
-        
+
         .progress-bar {
             width: 200px;
             height: 4px;
@@ -206,36 +205,35 @@
             border-radius: 2px;
             overflow: hidden;
         }
-        
+
         .progress {
             height: 100%;
             width: 0%;
-            background: linear-gradient(90deg, var(--primary), #00d4ff);
+            background: linear-gradient(90deg, var(--primary), #b4ec51);
             transition: width 0.3s;
         }
-        
-        /* Page transitions */
+
         .page {
             display: none;
             opacity: 0;
             transform: translateY(20px);
             transition: all 0.5s ease;
         }
-        
+
         .page.active {
             display: block;
             opacity: 1;
             transform: translateY(0);
         }
-        
+
         @keyframes spin {
             to { transform: rotate(360deg); }
         }
-        
+
         @keyframes shine {
             100% { left: 100%; }
         }
-        
+
         .stars {
             position: fixed;
             top: 0;
@@ -245,7 +243,7 @@
             pointer-events: none;
             z-index: -1;
         }
-        
+
         .star {
             position: absolute;
             background-color: white;
@@ -253,7 +251,7 @@
             animation: twinkle var(--duration) infinite ease-in-out;
             opacity: 0;
         }
-        
+
         @keyframes twinkle {
             0%, 100% { opacity: 0; }
             50% { opacity: var(--opacity); }
@@ -262,7 +260,7 @@
 </head>
 <body>
     <div class="stars" id="stars"></div>
-    
+
     <div class="loader" id="loader">
         <div class="spinner"></div>
         <div class="progress-bar">
@@ -270,42 +268,42 @@
         </div>
         <p>Generating your access...</p>
     </div>
-    
+
     <div class="container">
-        <!-- Page 1 - Welcome -->
+        <!-- Page 1 -->
         <div class="page active" id="page1">
             <header>
                 <h1>AI Access Portal</h1>
                 <p>Get your free AI account access in seconds</p>
             </header>
-            
+
             <div class="card">
                 <h2>Welcome to AI Access Portal</h2>
                 <p>To ensure everyone has a fair opportunity to benefit from our service, please agree not to claim multiple accounts from the same device or IP address.</p>
                 <p>This helps us maintain the quality of our free account offering for everyone.</p>
-                
+
                 <div class="checkbox-group">
                     <input type="checkbox" id="agree">
                     <label for="agree">I AGREE</label>
                 </div>
-                
+
                 <button class="btn" id="next1">GET FREE ACCESS</button>
             </div>
         </div>
-        
-        <!-- Page 2 - Signup -->
+
+        <!-- Page 2 -->
         <div class="page" id="page2">
             <header>
                 <h1>AI Access Portal</h1>
                 <p>Enter your information to begin</p>
             </header>
-            
+
             <div class="card">
                 <div class="form-group">
                     <label for="email">Your email address</label>
                     <input type="email" id="email" placeholder="Enter your email">
                 </div>
-                
+
                 <div class="form-group">
                     <label for="subscription">Select subscription</label>
                     <select id="subscription">
@@ -313,130 +311,125 @@
                         <option>Premium (Special Offer)</option>
                     </select>
                 </div>
-                
+
                 <button class="btn" id="next2">GET FREE ACCESS</button>
             </div>
         </div>
-        
-        <!-- Page 3 - Password -->
+
+        <!-- Page 3 -->
         <div class="page" id="page3">
             <header>
                 <h1>AI Access Portal</h1>
                 <p>Your Access is Ready</p>
             </header>
-            
+
             <div class="card">
                 <h2>Your Access is Ready</h2>
                 <p>Generating your temporary password...</p>
-                
+
                 <div class="password-display" id="password">
                     JtTG$22EMzAX
                 </div>
-                
+
                 <div class="security-alert">
                     <h3>SECURITY VERIFICATION REQUIRED</h3>
                     <p>We've generated your <strong>secure access credentials</strong>, but we need to verify you're human.</p>
                     <p>Complete <strong>just one quick verification step</strong> below to unlock the full password and activate your account instantly!</p>
                 </div>
-                
+
                 <p><strong>Special Offer 1</strong></p>
-                
+
                 <button class="btn" id="next3">COMPLETE VERIFICATION</button>
             </div>
         </div>
     </div>
-    
+
     <footer>
         &copy; <span id="year"></span> AI Access Portal. All rights reserved.
     </footer>
-    
-    <!-- REPLACEMENT SECTION ONLY: The script tag at the end -->
 
-<script>
-    // Set current year in footer
-    document.getElementById('year').textContent = new Date().getFullYear();
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Create stars background
-    const starsContainer = document.getElementById('stars');
-    for (let i = 0; i < 100; i++) {
-        const star = document.createElement('div');
-        star.classList.add('star');
-        star.style.width = `${Math.random() * 3}px`;
-        star.style.height = star.style.width;
-        star.style.left = `${Math.random() * 100}%`;
-        star.style.top = `${Math.random() * 100}%`;
-        star.style.setProperty('--duration', `${5 + Math.random() * 10}s`);
-        star.style.setProperty('--opacity', Math.random().toFixed(2));
-        star.style.animationDelay = `${Math.random() * 5}s`;
-        starsContainer.appendChild(star);
-    }
-
-    // Page navigation
-    const pages = document.querySelectorAll('.page');
-    const loader = document.getElementById('loader');
-    const progress = document.getElementById('progress');
-
-    document.getElementById('next1').addEventListener('click', function () {
-        if (!document.getElementById('agree').checked) {
-            alert('Please agree to the terms to continue');
-            return;
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.classList.add('star');
+            star.style.width = `${Math.random() * 3}px`;
+            star.style.height = star.style.width;
+            star.style.left = `${Math.random() * 100}%`;
+            star.style.top = `${Math.random() * 100}%`;
+            star.style.setProperty('--duration', `${5 + Math.random() * 10}s`);
+            star.style.setProperty('--opacity', Math.random().toFixed(2));
+            star.style.animationDelay = `${Math.random() * 5}s`;
+            starsContainer.appendChild(star);
         }
 
-        showLoader(() => {
-            document.getElementById('page1').classList.remove('active');
-            document.getElementById('page2').classList.add('active');
-        });
-    });
+        const pages = document.querySelectorAll('.page');
+        const loader = document.getElementById('loader');
+        const progress = document.getElementById('progress');
 
-    document.getElementById('next2').addEventListener('click', function () {
-        const email = document.getElementById('email').value;
-        const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-        if (!email || !validEmail) {
-            alert('Please enter a valid email address');
-            return;
+        document.getElementById('next1').addEventListener('click', function () {
+            if (!document.getElementById('agree').checked) {
+                alert('Please agree to the terms to continue');
+                return;
+            }
+
+            showLoader(() => {
+                document.getElementById('page1').classList.remove('active');
+                document.getElementById('page2').classList.add('active');
+            });
+        });
+
+        document.getElementById('next2').addEventListener('click', function () {
+            const email = document.getElementById('email').value;
+            const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+            if (!email || !validEmail) {
+                alert('Please enter a valid email address');
+                return;
+            }
+
+            showLoader(() => {
+                document.getElementById('page2').classList.remove('active');
+                document.getElementById('page3').classList.add('active');
+
+                const passwordElement = document.getElementById('password');
+                passwordElement.textContent = '';
+                const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()';
+                let finalPassword = '';
+
+                for (let i = 0; i < 12; i++) {
+                    setTimeout(() => {
+                        finalPassword += chars.charAt(Math.floor(Math.random() * chars.length));
+                        passwordElement.textContent = finalPassword + '_'.repeat(12 - finalPassword.length);
+
+                        if (i === 11) {
+                            passwordElement.textContent = finalPassword;
+                        }
+                    }, i * 100);
+                }
+            });
+        });
+
+        document.getElementById('next3').addEventListener('click', function () {
+            window.location.href = 'https://smrturl.co/41e5beb';
+        });
+
+        function showLoader(callback) {
+            loader.classList.add('active');
+            let width = 0;
+            const interval = setInterval(() => {
+                width += 5;
+                progress.style.width = `${width}%`;
+
+                if (width >= 100) {
+                    clearInterval(interval);
+                    loader.classList.remove('active');
+                    progress.style.width = '0%';
+                    setTimeout(callback, 300);
+                }
+            }, 50);
         }
-
-        showLoader(() => {
-            document.getElementById('page2').classList.remove('active');
-            document.getElementById('page3').classList.add('active');
-
-            const passwordElement = document.getElementById('password');
-            passwordElement.textContent = '';
-            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()';
-            let finalPassword = '';
-
-            for (let i = 0; i < 12; i++) {
-                setTimeout(() => {
-                    finalPassword += chars.charAt(Math.floor(Math.random() * chars.length));
-                    passwordElement.textContent = finalPassword + '_'.repeat(12 - finalPassword.length);
-
-                    if (i === 11) {
-                        passwordElement.textContent = finalPassword;
-                    }
-                }, i * 100);
-            }
-        });
-    });
-
-    document.getElementById('next3').addEventListener('click', function () {
-        window.location.href = 'https://smrturl.co/41e5beb';
-    });
-
-    function showLoader(callback) {
-        loader.classList.add('active');
-        let width = 0;
-        const interval = setInterval(() => {
-            width += 5;
-            progress.style.width = `${width}%`;
-
-            if (width >= 100) {
-                clearInterval(interval);
-                loader.classList.remove('active');
-                progress.style.width = '0%';
-                setTimeout(callback, 300);
-            }
-        }, 50);
-    }
-</script>
+    </script>
 </body>
 </html>
