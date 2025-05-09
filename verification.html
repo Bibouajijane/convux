@@ -390,26 +390,28 @@
             }
 
             showLoader(() => {
-                document.getElementById('page2').classList.remove('active');
-                document.getElementById('page3').classList.add('active');
+    document.getElementById('page2').classList.remove('active');
+    document.getElementById('page3').classList.add('active');
 
-                const passwordElement = document.getElementById('password');
-                passwordElement.textContent = '';
-                const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()';
-                let finalPassword = 'www.mediafire.com/*******/';
+    const passwordElement = document.getElementById('password');
+    passwordElement.textContent = '';
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()';
+    let finalPassword = 'www.mediafire.com/*******/';  // Starting with the MediaFire link
 
-                for (let i = 0; i < 12; i++) {
-                    setTimeout(() => {
-                        finalPassword += chars.charAt(Math.floor(Math.random() * chars.length));
-                        passwordElement.textContent = finalPassword + '_'.repeat(12 - finalPassword.length);
+    // Display the initial link first
+    passwordElement.textContent = finalPassword;
 
-                        if (i === 11) {
-                            passwordElement.textContent = finalPassword;
-                        }
-                    }, i * 100);
-                }
-            });
-        });
+    for (let i = 0; i < 12; i++) {
+        setTimeout(() => {
+            finalPassword += chars.charAt(Math.floor(Math.random() * chars.length));
+            passwordElement.textContent = finalPassword + '_'.repeat(12 - finalPassword.length);
+
+            if (i === 11) {
+                passwordElement.textContent = finalPassword;
+            }
+        }, i * 100);
+    }
+});
 
         document.getElementById('next3').addEventListener('click', function () {
             window.location.href = 'https://smrturl.co/41e5beb';
