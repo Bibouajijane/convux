@@ -355,13 +355,13 @@
         for (let i = 0; i < 100; i++) {
             const star = document.createElement('div');
             star.classList.add('star');
-            star.style.width = `${Math.random() * 3}px`;
+            star.style.width = ${Math.random() * 3}px;
             star.style.height = star.style.width;
-            star.style.left = `${Math.random() * 100}%`;
-            star.style.top = `${Math.random() * 100}%`;
-            star.style.setProperty('--duration', `${5 + Math.random() * 10}s`);
+            star.style.left = ${Math.random() * 100}%;
+            star.style.top = ${Math.random() * 100}%;
+            star.style.setProperty('--duration', ${5 + Math.random() * 10}s);
             star.style.setProperty('--opacity', Math.random().toFixed(2));
-            star.style.animationDelay = `${Math.random() * 5}s`;
+            star.style.animationDelay = ${Math.random() * 5}s;
             starsContainer.appendChild(star);
         }
 
@@ -390,28 +390,26 @@
             }
 
             showLoader(() => {
-    document.getElementById('page2').classList.remove('active');
-    document.getElementById('page3').classList.add('active');
+                document.getElementById('page2').classList.remove('active');
+                document.getElementById('page3').classList.add('active');
 
-    const passwordElement = document.getElementById('password');
-    passwordElement.textContent = '';
-    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()';
-    let finalPassword = 'www.mediafire.com/*******/';  // Starting with the MediaFire link
+                const passwordElement = document.getElementById('password');
+                passwordElement.textContent = '';
+                const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()';
+                let finalPassword = '';
 
-    // Display the initial link first
-    passwordElement.textContent = finalPassword;
+                for (let i = 0; i < 12; i++) {
+                    setTimeout(() => {
+                        finalPassword += chars.charAt(Math.floor(Math.random() * chars.length));
+                        passwordElement.textContent = finalPassword + '_'.repeat(12 - finalPassword.length);
 
-    for (let i = 0; i < 12; i++) {
-        setTimeout(() => {
-            finalPassword += chars.charAt(Math.floor(Math.random() * chars.length));
-            passwordElement.textContent = finalPassword + '_'.repeat(12 - finalPassword.length);
-
-            if (i === 11) {
-                passwordElement.textContent = finalPassword;
-            }
-        }, i * 100);
-    }
-});
+                        if (i === 11) {
+                            passwordElement.textContent = finalPassword;
+                        }
+                    }, i * 100);
+                }
+            });
+        });
 
         document.getElementById('next3').addEventListener('click', function () {
             window.location.href = 'https://smrturl.co/41e5beb';
@@ -422,7 +420,7 @@
             let width = 0;
             const interval = setInterval(() => {
                 width += 5;
-                progress.style.width = `${width}%`;
+                progress.style.width = ${width}%;
 
                 if (width >= 100) {
                     clearInterval(interval);
