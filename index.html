@@ -1,190 +1,625 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Download premium MOD APK games with unlimited features and no ads." />
-  <link rel="icon" href="https://i.top4top.io/p_3416669q51.png" type="image/png" />
-
-  <link rel="stylesheet" href="style.css" />
-  <title>Convux - Premium MOD Games</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monochrome | Minimalist Apparel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: #1a1a1a;
+        }
+        .cart-sidebar {
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+            background-color: #f8f8f8;
+            border-left: 1px solid #e5e5e5;
+        }
+        .cart-sidebar.open {
+            transform: translateX(0);
+        }
+        .product-card {
+            transition: all 0.3s ease;
+            background-color: #f8f8f8;
+            border: 1px solid #e5e5e5;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        .confirmation-overlay {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .confirmation-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+        .add-to-cart {
+            background-color: #1a1a1a;
+            color: white;
+        }
+        .add-to-cart:hover {
+            background-color: #333;
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: #1a1a1a;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover:after {
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <div class="container">
-      <img class="logo" src="https://j.top4top.io/p_3406fdyio1.png" alt="Convux Logo" />
+    <!-- Header -->
+    <header class="bg-white border-b border-gray-200 fixed w-full z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <div class="w-8 h-8 bg-black rounded-full"></div>
+                <span class="text-xl font-bold">MONOCHROME</span>
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#" class="nav-link">Home</a>
+                <a href="#" class="nav-link">Collections</a>
+                <a href="#" class="nav-link">About</a>
+                <a href="#" class="nav-link">Contact</a>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <button id="cart-toggle" class="relative">
+                    <i class="fas fa-shopping-bag text-xl"></i>
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-black text-white text-xs w-5 h-5 flex items-center justify-center rounded-full hidden">0</span>
+                </button>
+                <button class="md:hidden">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 px-4 bg-white">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">Essentials <br>for the <span class="italic">modern wardrobe</span></h1>
+                    <p class="text-lg text-gray-600 mb-8">Timeless pieces designed to last. No logos, no distractions—just quality craftsmanship.</p>
+                    <a href="#products" class="bg-black hover:bg-gray-800 text-white px-6 py-3 rounded-sm font-medium transition inline-block">Shop Collection</a>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <img src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Minimalist clothing" 
+                         class="rounded-sm shadow-sm max-w-md w-full h-auto object-cover grayscale hover:grayscale-0 transition duration-500">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-16 px-4 bg-gray-50">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold mb-12 text-center">The Collection</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Product 1 -->
+                <div class="product-card rounded-sm overflow-hidden">
+                    <a href="https://youcan.ma/produit-1" target="_blank">
+                        <img src="https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1525&q=80" 
+                             alt="Classic White Tee" 
+                             class="w-full h-64 object-cover grayscale hover:grayscale-0 transition duration-500">
+                    </a>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg mb-1">Classic White Tee</h3>
+                        <p class="text-gray-600 mb-3">100% organic cotton</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold">$34.99</span>
+                            <button class="add-to-cart px-4 py-2 rounded-sm transition" 
+                                    data-id="1" 
+                                    data-name="Classic White Tee" 
+                                    data-price="34.99" 
+                                    data-image="https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1525&q=80">
+                                Add to Bag
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card rounded-sm overflow-hidden">
+                    <a href="https://youcan.ma/produit-2" target="_blank">
+                        <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=736&q=80" 
+                             alt="Black Trousers" 
+                             class="w-full h-64 object-cover grayscale hover:grayscale-0 transition duration-500">
+                    </a>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg mb-1">Black Trousers</h3>
+                        <p class="text-gray-600 mb-3">Tailored fit</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold">$59.99</span>
+                            <button class="add-to-cart px-4 py-2 rounded-sm transition" 
+                                    data-id="2" 
+                                    data-name="Black Trousers" 
+                                    data-price="59.99" 
+                                    data-image="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=736&q=80">
+                                Add to Bag
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card rounded-sm overflow-hidden">
+                    <a href="https://youcan.ma/produit-3" target="_blank">
+                        <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
+                             alt="Overshirt" 
+                             class="w-full h-64 object-cover grayscale hover:grayscale-0 transition duration-500">
+                    </a>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg mb-1">Overshirt</h3>
+                        <p class="text-gray-600 mb-3">Lightweight cotton</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold">$79.99</span>
+                            <button class="add-to-cart px-4 py-2 rounded-sm transition" 
+                                    data-id="3" 
+                                    data-name="Overshirt" 
+                                    data-price="79.99" 
+                                    data-image="https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80">
+                                Add to Bag
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card rounded-sm overflow-hidden">
+                    <a href="https://youcan.ma/produit-4" target="_blank">
+                        <img src="https://images.unsplash.com/photo-1527719327859-c6ce80353573?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80" 
+                             alt="Knit Sweater" 
+                             class="w-full h-64 object-cover grayscale hover:grayscale-0 transition duration-500">
+                    </a>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg mb-1">Knit Sweater</h3>
+                        <p class="text-gray-600 mb-3">Merino wool</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold">$65.99</span>
+                            <button class="add-to-cart px-4 py-2 rounded-sm transition" 
+                                    data-id="4" 
+                                    data-name="Knit Sweater" 
+                                    data-price="65.99" 
+                                    data-image="https://images.unsplash.com/photo-1527719327859-c6ce80353573?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80">
+                                Add to Bag
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="product-card rounded-sm overflow-hidden">
+                    <a href="https://youcan.ma/produit-5" target="_blank">
+                        <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
+                             alt="Linen Pants" 
+                             class="w-full h-64 object-cover grayscale hover:grayscale-0 transition duration-500">
+                    </a>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg mb-1">Linen Pants</h3>
+                        <p class="text-gray-600 mb-3">Breathable fabric</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold">$54.99</span>
+                            <button class="add-to-cart px-4 py-2 rounded-sm transition" 
+                                    data-id="5" 
+                                    data-name="Linen Pants" 
+                                    data-price="54.99" 
+                                    data-image="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80">
+                                Add to Bag
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="product-card rounded-sm overflow-hidden">
+                    <a href="https://youcan.ma/produit-6" target="_blank">
+                        <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1026&q=80" 
+                             alt="Canvas Sneakers" 
+                             class="w-full h-64 object-cover grayscale hover:grayscale-0 transition duration-500">
+                    </a>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg mb-1">Canvas Sneakers</h3>
+                        <p class="text-gray-600 mb-3">Minimalist design</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold">$89.99</span>
+                            <button class="add-to-cart px-4 py-2 rounded-sm transition" 
+                                    data-id="6" 
+                                    data-name="Canvas Sneakers" 
+                                    data-price="89.99" 
+                                    data-image="https://images.unsplash.com/photo-1542272604-787c3835535d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1026&q=80">
+                                Add to Bag
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shopping Cart Sidebar -->
+    <div id="cart-sidebar" class="cart-sidebar fixed top-0 right-0 h-full w-full md:w-96 z-50 overflow-y-auto">
+        <div class="p-6">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold">Your Bag</h2>
+                <button id="close-cart" class="text-gray-600 hover:text-black">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <div id="cart-items" class="mb-6">
+                <!-- Cart items will be added here dynamically -->
+                <p id="empty-cart-message" class="text-gray-500 text-center py-8">Your bag is empty</p>
+            </div>
+            
+            <div class="border-t border-gray-300 pt-4">
+                <div class="flex justify-between mb-2">
+                    <span class="text-gray-600">Subtotal</span>
+                    <span id="cart-subtotal" class="font-bold">$0.00</span>
+                </div>
+                <div class="flex justify-between mb-4">
+                    <span class="text-gray-600">Shipping</span>
+                    <span class="font-bold">Free</span>
+                </div>
+                <div class="flex justify-between text-lg font-bold mb-6">
+                    <span>Total</span>
+                    <span id="cart-total">$0.00</span>
+                </div>
+                <button id="checkout-btn" class="w-full bg-black hover:bg-gray-800 text-white py-3 rounded-sm font-medium transition disabled:opacity-50" disabled>
+                    Checkout
+                </button>
+            </div>
+        </div>
     </div>
-  </header>
 
-  <div class="container">
-    <!-- Card 1 -->
-<div class="game-card">
-  <div class="game-cover" style="background-image: url('https://j.top4top.io/p_34153ls190.jpg')"></div>
-  <div class="game-header">
-    <h2 class="game-title">Baseball 9 Mod 2025</h2>
-    <div class="game-meta">
-      <span class="game-rating"><span class="star">★</span> 4.8</span>
-      <span>Sports | 200 MB</span>
-    </div>
-  </div>
-  <div class="game-content">
-    <h3>MOD Features:</h3>
-    <ul class="mod-features">
-      <li>Unlocked</li>
-      <li>Unlimited Money</li>
-      <li>All Items</li>
-      <li>No Ads</li>
-    </ul>
-    <a href="verification.html" class="download-btn">Download</a>
-  </div>
-</div>
+    <!-- Order Confirmation Form -->
+    <section id="order-form" class="py-16 px-4 bg-white">
+        <div class="container mx-auto max-w-3xl">
+            <h2 class="text-3xl font-bold mb-8 text-center">Complete Your Order</h2>
+            <form id="confirmation-form" class="bg-gray-50 p-8 rounded-sm border border-gray-200">
+                <div class="mb-4">
+                    <label for="name" class="block text-gray-700 mb-2">Full Name</label>
+                    <input type="text" id="name" name="name" required 
+                           class="w-full px-4 py-2 bg-white border border-gray-300 rounded-sm focus:outline-none focus:border-black">
+                </div>
+                <div class="mb-4">
+                    <label for="phone" class="block text-gray-700 mb-2">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required 
+                           class="w-full px-4 py-2 bg-white border border-gray-300 rounded-sm focus:outline-none focus:border-black">
+                </div>
+                <div class="mb-6">
+                    <label for="city" class="block text-gray-700 mb-2">City</label>
+                    <input type="text" id="city" name="city" required 
+                           class="w-full px-4 py-2 bg-white border border-gray-300 rounded-sm focus:outline-none focus:border-black">
+                </div>
+                <button type="submit" class="w-full bg-black hover:bg-gray-800 text-white py-3 rounded-sm font-medium transition">
+                    Place Order
+                </button>
+            </form>
+        </div>
+    </section>
 
-<!-- Card 2 -->
-<div class="game-card">
-  <div class="game-cover" style="background-image: url('https://k.top4top.io/p_341562m6w0.png')"></div>
-  <div class="game-header">
-    <h2 class="game-title">GTA V Android</h2>
-    <div class="game-meta">
-      <span class="game-rating"><span class="star">★</span> 4.9</span>
-      <span>Action | 300 MB</span>
-    </div>
-  </div>
-  <div class="game-content">
-    <h3>MOD Features:</h3>
-    <ul class="mod-features">
-      <li>Unlimited Money</li>
-      <li>Open World</li>
-      <li>No License Required</li>
-    </ul>
-    <a href="verification.html" class="download-btn">Download</a>
-  </div>
-</div>
-
-<!-- Card 3 -->
-<div class="game-card">
-  <div class="game-cover" style="background-image: url('https://e.top4top.io/p_3416abkdn1.jpg')"></div>
-  <div class="game-header">
-    <h2 class="game-title">Shadow Fight 2</h2>
-    <div class="game-meta">
-      <span class="game-rating"><span class="star">★</span> 4.6</span>
-      <span>Fighting | 150 MB</span>
-    </div>
-  </div>
-  <div class="game-content">
-    <h3>MOD Features:</h3>
-    <ul class="mod-features">
-      <li>Unlimited Gems</li>
-      <li>Max Level</li>
-      <li>All Weapons</li>
-    </ul>
-    <a href="verification.html" class="download-btn">Download</a>
-  </div>
-</div>
-
-<!-- Card 4 -->
-<div class="game-card">
-  <div class="game-cover" style="background-image: url('https://i.top4top.io/p_34168ipet1.jpg')"></div>
-  <div class="game-header">
-    <h2 class="game-title">eFootball 2025 Mobile +8000 Coin</h2>
-    <div class="game-meta">
-      <span class="game-rating"><span class="star">★</span> 4.7</span>
-      <span>Sports | 350 MB</span>
-    </div>
-  </div>
-  <div class="game-content">
-    <h3>MOD Features:</h3>
-    <ul class="mod-features">
-      <li>Unlimited Coins</li>
-      <li>Unlocked Players</li>
-      <li>No Ads</li>
-    </ul>
-    <a href="verification.html" class="download-btn">Download</a>
-  </div>
-</div>
-
-<!-- Card 5 -->
-<div class="game-card">
-  <div class="game-cover" style="background-image: url('https://d.top4top.io/p_3416fici51.jpg')"></div>
-  <div class="game-header">
-    <h2 class="game-title">Monopoly GO! Free Dice</h2>
-    <div class="game-meta">
-      <span class="game-rating"><span class="star">★</span> 4.9</span>
-      <span>Strategy | 250 MB</span>
-    </div>
-  </div>
-  <div class="game-content">
-    <h3>MOD Features:</h3>
-    <ul class="mod-features">
-      <li>Unlimited Dice Rolls</li>
-      <li>All Boards Unlocked</li>
-      <li>No Ads</li>
-    </ul>
-    <a href="verification.html" class="download-btn">Download</a>
-  </div>
-</div>
-
-<!-- Card 6 -->
-<div class="game-card">
-  <div class="game-cover" style="background-image: url('https://k.top4top.io/p_34162xze51.jpg')"></div>
-  <div class="game-header">
-    <h2 class="game-title">One Piece Bounty Rush Skins Unlocked</h2>
-    <div class="game-meta">
-      <span class="game-rating"><span class="star">★</span> 4.6</span>
-      <span>Action | 1.1 GB</span>
-    </div>
-  </div>
-  <div class="game-content">
-    <h3>MOD Features:</h3>
-    <ul class="mod-features">
-      <li>Unlimited Diamonds</li>
-      <li>All Characters Unlocked</li>
-      <li>God Mode</li>
-    </ul>
-    <a href="verification.html" class="download-btn">Download</a>
-  </div>
-</div>
-
-
-<!-- Card 7 -->
-<div class="game-card">
-  <div class="game-cover" style="background-image: url('https://j.top4top.io/p_3416p5ebx1.jpg')"></div>
-  <div class="game-header">
-    <h2 class="game-title">Roblox Unlimited Robux</h2>
-    <div class="game-meta">
-      <span class="game-rating"><span class="star">★</span> 4.7</span>
-      <span>Adventure | 180 MB</span>
-    </div>
-  </div>
-  <div class="game-content">
-    <h3>MOD Features:</h3>
-    <ul class="mod-features">
-      <li>Unlimited Robux</li>
-      <li>All Skins</li>
-      <li>Creative Mode</li>
-    </ul>
-    <a href="https://convux.store/?d273ed5" class="download-btn">Download</a>
-  </div>
-</div>
-
-
-    <div class="why-us">
-      <h2>Why Choose Us?</h2>
-      <div class="features">
-        <div class="feature">🚀 Safe & Tested</div>
-        <div class="feature">🔄 Updates</div>
-        <div class="feature">📥 Fast Downloads</div>
-      </div>
+    <!-- Confirmation Overlay -->
+    <div id="confirmation-overlay" class="confirmation-overlay fixed inset-0 flex items-center justify-center z-50">
+        <div class="bg-white p-8 rounded-sm max-w-md w-full mx-4 text-center border border-gray-200">
+            <div class="w-16 h-16 bg-black rounded-full flex items-center justify-center mx-auto mb-6">
+                <i class="fas fa-check text-2xl text-white"></i>
+            </div>
+            <h2 class="text-2xl font-bold mb-4">Order Confirmed</h2>
+            <p class="text-gray-600 mb-6">Thank you for your purchase. A confirmation email has been sent to your inbox.</p>
+            <button id="close-confirmation" class="bg-black hover:bg-gray-800 text-white px-6 py-2 rounded-sm font-medium transition">
+                Continue Shopping
+            </button>
+        </div>
     </div>
 
-    <div class="explore-more">
-      <a href="verification.html" class="explore-btn">Explore More Games</a>
-    </div>
-  </div>
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 py-12 px-4">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-6 h-6 bg-black rounded-full"></div>
+                        <span class="text-lg font-bold">MONOCHROME</span>
+                    </div>
+                    <p class="text-gray-500 mt-2">Essentials for everyday life</p>
+                </div>
+                <div class="flex space-x-6 mb-6 md:mb-0">
+                    <a href="#" class="text-gray-500 hover:text-black transition">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-500 hover:text-black transition">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-500 hover:text-black transition">
+                        <i class="fab fa-pinterest text-xl"></i>
+                    </a>
+                </div>
+                <div class="text-center md:text-left">
+                    <p class="text-gray-500">Sign up for our newsletter</p>
+                    <div class="mt-2 flex">
+                        <input type="email" placeholder="Your email" class="px-4 py-2 border border-gray-300 rounded-sm focus:outline-none focus:border-black">
+                        <button class="bg-black text-white px-4 py-2 ml-2 rounded-sm">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-200 mt-8 pt-8 text-center text-gray-500">
+                <p>&copy; 2023 MONOCHROME. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
-  <footer>
-    <div class="container">
-      <p>&copy; 2025 Convux. All rights reserved.</p>
-    </div>
-  </footer>
+    <script>
+        // Initialize cart
+        let cart = [];
+        
+        // DOM Elements
+        const cartToggle = document.getElementById('cart-toggle');
+        const closeCart = document.getElementById('close-cart');
+        const cartSidebar = document.getElementById('cart-sidebar');
+        const cartItemsContainer = document.getElementById('cart-items');
+        const emptyCartMessage = document.getElementById('empty-cart-message');
+        const cartCount = document.getElementById('cart-count');
+        const cartSubtotal = document.getElementById('cart-subtotal');
+        const cartTotal = document.getElementById('cart-total');
+        const checkoutBtn = document.getElementById('checkout-btn');
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        const confirmationForm = document.getElementById('confirmation-form');
+        const confirmationOverlay = document.getElementById('confirmation-overlay');
+        const closeConfirmation = document.getElementById('close-confirmation');
+        
+        // Toggle cart sidebar
+        cartToggle.addEventListener('click', () => {
+            cartSidebar.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        closeCart.addEventListener('click', () => {
+            cartSidebar.classList.remove('open');
+            document.body.style.overflow = '';
+        });
+        
+        // Add to cart functionality
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                const id = button.getAttribute('data-id');
+                const name = button.getAttribute('data-name');
+                const price = parseFloat(button.getAttribute('data-price'));
+                const image = button.getAttribute('data-image');
+                
+                // Check if item already exists in cart
+                const existingItem = cart.find(item => item.id === id);
+                
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    cart.push({
+                        id,
+                        name,
+                        price,
+                        image,
+                        quantity: 1
+                    });
+                }
+                
+                updateCart();
+                cartSidebar.classList.add('open');
+                
+                // Animation for button
+                gsap.to(button, {
+                    backgroundColor: '#4a4a4a',
+                    duration: 0.3,
+                    yoyo: true,
+                    repeat: 1,
+                    onComplete: () => {
+                        gsap.to(button, {
+                            backgroundColor: '#1a1a1a',
+                            duration: 0.3
+                        });
+                    }
+                });
+            });
+        });
+        
+        // Update cart UI
+        function updateCart() {
+            // Update cart items
+            if (cart.length === 0) {
+                emptyCartMessage.classList.remove('hidden');
+                cartItemsContainer.innerHTML = '';
+            } else {
+                emptyCartMessage.classList.add('hidden');
+                
+                let itemsHTML = '';
+                cart.forEach(item => {
+                    itemsHTML += `
+                        <div class="flex items-center py-4 border-b border-gray-300">
+                            <img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-cover">
+                            <div class="ml-4 flex-1">
+                                <h3 class="font-medium">${item.name}</h3>
+                                <p class="text-gray-600 text-sm">$${item.price.toFixed(2)} x ${item.quantity}</p>
+                            </div>
+                            <div class="flex flex-col items-end">
+                                <span class="font-bold">$${(item.price * item.quantity).toFixed(2)}</span>
+                                <button class="remove-item text-gray-500 hover:text-black text-xs mt-1" data-id="${item.id}">Remove</button>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                cartItemsContainer.innerHTML = itemsHTML;
+                
+                // Add event listeners to remove buttons
+                document.querySelectorAll('.remove-item').forEach(button => {
+                    button.addEventListener('click', (e) => {
+                        const id = e.target.getAttribute('data-id');
+                        cart = cart.filter(item => item.id !== id);
+                        updateCart();
+                    });
+                });
+            }
+            
+            // Update cart count
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            if (totalItems > 0) {
+                cartCount.textContent = totalItems;
+                cartCount.classList.remove('hidden');
+            } else {
+                cartCount.classList.add('hidden');
+            }
+            
+            // Update totals
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            cartSubtotal.textContent = `$${subtotal.toFixed(2)}`;
+            cartTotal.textContent = `$${subtotal.toFixed(2)}`;
+            
+            // Enable/disable checkout button
+            checkoutBtn.disabled = cart.length === 0;
+        }
+        
+        // Checkout button
+        checkoutBtn.addEventListener('click', () => {
+            cartSidebar.classList.remove('open');
+            document.body.style.overflow = '';
+            
+            // Scroll to order form
+            document.getElementById('order-form').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+        
+        // Form submission
+        confirmationForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Here you would typically send the data to a server
+            // For this demo, we'll just show the confirmation
+            
+            // Reset form
+            confirmationForm.reset();
+            
+            // Show confirmation
+            confirmationOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        // Close confirmation
+        closeConfirmation.addEventListener('click', () => {
+            confirmationOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+            
+            // Clear cart
+            cart = [];
+            updateCart();
+        });
+        
+        // GSAP Animations
+        gsap.registerPlugin(ScrollTrigger);
+        
+        // Animate hero section elements
+        gsap.from('header', {
+            y: -50,
+            opacity: 0,
+            duration: 0.8,
+            ease: "power2.out"
+        });
+        
+        gsap.from('section:first-of-type h1', {
+            y: 30,
+            opacity: 0,
+            duration: 0.8,
+            delay: 0.3,
+            ease: "power2.out"
+        });
+        
+        gsap.from('section:first-of-type p', {
+            y: 30,
+            opacity: 0,
+            duration: 0.8,
+            delay: 0.5,
+            ease: "power2.out"
+        });
+        
+        gsap.from('section:first-of-type a', {
+            y: 30,
+            opacity: 0,
+            duration: 0.8,
+            delay: 0.7,
+            ease: "power2.out"
+        });
+        
+        gsap.from('section:first-of-type img', {
+            x: 30,
+            opacity: 0,
+            duration: 0.8,
+            delay: 0.5,
+            ease: "power2.out"
+        });
+        
+        // Animate product cards on scroll
+        gsap.utils.toArray('.product-card').forEach((card, i) => {
+            gsap.from(card, {
+                scrollTrigger: {
+                    trigger: card,
+                    start: "top 80%",
+                    toggleActions: "play none none none"
+                },
+                y: 50,
+                opacity: 0,
+                duration: 0.6,
+                delay: i * 0.1,
+                ease: "power2.out"
+            });
+        });
+        
+        // Animate order form
+        gsap.from('#order-form h2', {
+            scrollTrigger: {
+                trigger: '#order-form',
+                start: "top 80%",
+                toggleActions: "play none none none"
+            },
+            y: 30,
+            opacity: 0,
+            duration: 0.6,
+            ease: "power2.out"
+        });
+        
+        gsap.from('#confirmation-form', {
+            scrollTrigger: {
+                trigger: '#order-form',
+                start: "top 80%",
+                toggleActions: "play none none none"
+            },
+            y: 30,
+            opacity: 0,
+            duration: 0.6,
+            delay: 0.2,
+            ease: "power2.out"
+        });
+    </script>
 </body>
 </html>
